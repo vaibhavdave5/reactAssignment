@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CourseList from './components/CourseList'
+import WhiteBoard from './components/WhiteBoard';
 
 class App extends Component {
   render() {
@@ -21,7 +20,7 @@ class App extends Component {
             Learn React
           </a>
         </header> */}
-        <CourseList />
+        <WhiteBoard />
       </div>
     );
   }

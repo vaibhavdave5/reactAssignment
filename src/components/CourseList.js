@@ -3,20 +3,10 @@ import CourseListNav from './CourseListNav'
 import Courses from './Courses'
 import CourseService from '../services/CourseService'
 
-class CourseList extends Component{
-    constructor(props) {
-        super(props);
-        this.coursesService = new CourseService();
-        this.state = {
-            courses: this.coursesService.findAllCourses()
-        }
-    }
 
-    render(){  
-        
-        
-        return(
-            <div>
+
+const CourseList = ({courses}) =>
+              <div>
                 <CourseListNav/>
         
             <table className="table">
@@ -38,7 +28,7 @@ class CourseList extends Component{
                 
                 <tbody> 
                     {
-                       this.state.courses.map(
+                       courses.map(
                            course => <Courses courseName = {course.title}
                                               owner = "me"
                                               lastModified = "6:45"
@@ -50,8 +40,8 @@ class CourseList extends Component{
                 </tbody>
             </table>
             </div>
-        )
-    }
-}
+        
+    
+
 
 export default CourseList;
