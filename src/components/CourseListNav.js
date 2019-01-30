@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 
 export default class CourseList extends Component{
     constructor(props) {super(props);}
@@ -29,7 +30,8 @@ export default class CourseList extends Component{
 
         </div>
     </nav>
-
+    <Link to="/">Course Grid</Link> |
+   <Link to="/table">Course Table</Link>
             </div>
         )
     }

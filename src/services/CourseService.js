@@ -21,6 +21,7 @@ class CourseService {
     this.courses = this.courses.find(
       course => course.id === courseId
     )
+    return this.courses
   }
 
   findAllCourses = () =>{

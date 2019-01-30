@@ -1,9 +1,10 @@
 import React from 'react';
 import Courses from './Courses'
+import CourseListNav from './CourseListNav';
 
 const CourseList = ({courses}) =>
               <div>
-           
+            <CourseListNav />
             <table className="table">
                 <thead>
                     <tr>
