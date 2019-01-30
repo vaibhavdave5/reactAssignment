@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-import CourseListNav from './CourseListNav'
+import React from 'react';
 import Courses from './Courses'
-import CourseService from '../services/CourseService'
-
-
 
 const CourseList = ({courses}) =>
               <div>
-                <CourseListNav/>
-        
+           
             <table className="table">
                 <thead>
                     <tr>

@@ -48,7 +48,7 @@
       ]
     },
     {
-      "id": 345,
+      "id": 3451,
       "title": "Software Engineering",
       "modules": [
         {
@@ -60,5 +60,74 @@
           "title": "Testing"
         }
       ]
+    },
+    {
+      "id": 1231,
+      "title": "WebDev",
+      "modules": [
+        {
+          "id": 1,
+          "title": "jQuery",
+          "lessons": [
+            {
+              "id": 1,
+              "title": "Lesson 1"
+            },
+            {
+              "id": 2,
+              "title": "Lesson 2"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "React",
+          "lessons": [
+            {
+              "id": 3,
+              "title": "Lesson 3"
+            },
+            {
+              "id": 4,
+              "title": "Lesson 4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1232,
+      "title": "WebDev",
+      "modules": [
+        {
+          "id": 1,
+          "title": "jQuery",
+          "lessons": [
+            {
+              "id": 1,
+              "title": "Lesson 1"
+            },
+            {
+              "id": 2,
+              "title": "Lesson 2"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "React",
+          "lessons": [
+            {
+              "id": 3,
+              "title": "Lesson 3"
+            },
+            {
+              "id": 4,
+              "title": "Lesson 4"
+            }
+          ]
+        }
+      ]
     }
+
   ]
