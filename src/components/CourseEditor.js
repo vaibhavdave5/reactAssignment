@@ -16,6 +16,7 @@ class CourseEditor extends React.Component {
             course: course,
             title: course.title,
             module: course.modules[0],
+            lesson: course.modules[0].lessons[0],
             newModuleName: ""
         }
     }
@@ -23,6 +24,24 @@ class CourseEditor extends React.Component {
         this.setState({
             module: module
         })
+        this.setState({
+            lesson: module.lessons[0]
+        })
+    }
+
+    selectLesson = lesson =>{
+        this.setState({
+            lesson: lesson
+        })
+    }
+
+    lessonActive = lesson =>{
+        if(lesson.id === this.state.lesson.id){
+            return "active nav-link";
+        }
+        else {
+            return "nav-link"
+        }
     }
 
     deleteModule = deleteModule => {
@@ -35,6 +54,34 @@ class CourseEditor extends React.Component {
             )
             var newCourse = this.state.course;
             newCourse.modules = modules;
+            this.setState({
+                course: newCourse
+            })
+        }
+    }
+
+
+    deleteLesson = deleteLesson => {
+        if(this.state.module.lessons.length === 1){
+            alert("You cannot delete the last Lesson");
+        }
+        else {
+            var lessons = this.state.module.lessons.filter(
+                lesson => lesson.id !== deleteLesson.id
+            )
+            var newCourse = this.state.course;
+            var newModules = this.state.course.modules;
+
+            for (var i = 0; i < newModules.length; i++) {
+                if(this.state.module.id === newModules[i].id){
+                    newModules[i].lessons = lessons;
+                    this.setState({
+                        module: newModules[i]
+                    })
+                }
+            }
+            newCourse.modules = newModules;
+
             this.setState({
                 course: newCourse
             })
@@ -60,6 +107,43 @@ class CourseEditor extends React.Component {
             newModuleName: document.getElementById("newModule").value
         })
     }
+
+
+    titleChangedLesson = (lesson) => {
+        var txt;
+        var name = prompt("Please enter your new Lesson Name:", "");
+        if (name == null || name == "") {
+            alert("User cancelled the prompt.");
+        } else {
+            txt =  name ;
+            var lessons = this.state.module.lessons;
+
+            for (var i = 0; i < lessons.length; i++) {
+                if(lesson.id === lessons[i].id){
+                    lessons[i].title = txt;
+                    console.log("Executed");
+                }
+            }
+
+            var newCourse = this.state.course;
+            var newModules = this.state.course.modules;
+
+            for (var i = 0; i < newModules.length; i++) {
+                if(this.state.module.id === newModules[i].id){
+                    newModules[i].lesson = lessons;
+                    this.setState({
+                        module: newModules[i]
+                    })
+                }
+            }
+            newCourse.modules = newModules;
+
+            this.setState({
+                course: newCourse
+            })
+        }
+    }
+
 
     titleChanged = (module) => {
         var txt;
@@ -194,7 +278,12 @@ class CourseEditor extends React.Component {
                                             (lesson) => {
                                                 return (
                                                     <LessonTabs
-                                                        lesson={lesson}/>
+                                                        lesson={lesson}
+                                                        selectLesson={this.selectLesson}
+                                                        deleteLesson={this.deleteLesson}
+                                                        updateLesson ={this.titleChangedLesson}
+                                                        lessonActive={this.lessonActive}
+                                                    />
                                                 )
                                             }
                                         )
