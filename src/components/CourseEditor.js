@@ -63,17 +63,16 @@ class CourseEditor extends React.Component {
                         <div className="col-10 fixed-right">
                             <div className="row">
                                 <ul className="nav nav-tabs">
-                                    <li className="nav-item">
-                                        <a className="nav-link active"
-                                           href="#">Lesson 1</a></li>
-                                    <li className="nav-item">
-                                        <a className="nav-link"
-                                           href="#">Lesson 2</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link"
-                                           href="#">Lesson 3</a>
-                                    </li>
+                                    {
+                                        this.state.course.modules[0].lessons.map(
+                                            (lesson) => {
+                                                return (
+                                                    <LessonTabs
+                                                        lesson={lesson}/>
+                                                )
+                                            }
+                                        )
+                                    }
                                     <li className="nav-item">
                                         <a className="nav-link"
                                            href="#">+</a>
