@@ -86,6 +86,32 @@ class CourseEditor extends React.Component {
         }
     }
 
+
+    addLesson = (lesson) => {
+        var txt;
+        var name = prompt("Please enter your new Lesson Name:", "");
+        if (name == null || name == "") {
+            alert("User cancelled the prompt.");
+        } else {
+            txt =  name ;
+            var lessons = this.state.module.lessons;
+            var newLesson = {
+                "id": new Date().getTime(),
+                "title": txt,
+                "topics":[{
+                    "id": 1,
+                    "title": "Topic 4"
+                }]
+            }
+            var newCourse = this.state.course;
+            this.state.module.lessons.push(newLesson);
+            this.setState({
+                course: newCourse
+            });
+            this.courseService.updateCourse(this.state.course.id, this.state.course);
+        }
+    }
+
     render() {
         return (
             <div>
@@ -164,7 +190,7 @@ class CourseEditor extends React.Component {
                             <div className="row">
                                 <ul className="nav nav-tabs">
                                     {
-                                        this.state.course.modules[0].lessons.map(
+                                        this.state.module.lessons.map(
                                             (lesson) => {
                                                 return (
                                                     <LessonTabs
@@ -174,8 +200,7 @@ class CourseEditor extends React.Component {
                                         )
                                     }
                                     <li className="nav-item">
-                                        <a className="nav-link"
-                                           href="#">+</a>
+                                        <i className="fas fa-plus nav-link" onClick={this.addLesson}></i>
                                     </li>
                                 </ul>
                             </div>
