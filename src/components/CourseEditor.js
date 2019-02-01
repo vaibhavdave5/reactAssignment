@@ -26,7 +26,7 @@ class CourseEditor extends React.Component {
             <div>
 
                 <div className="wrapper">
-                    <CourseEditorNav title={this.state.title}/>
+                    <ModuleList course={this.state.course}/>
 
                     <div id="content">
 
