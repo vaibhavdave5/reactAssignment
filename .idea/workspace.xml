@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1c35b67-5c89-49f8-b33b-c9cfafc863e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/CourseEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleListItem.js" afterDir="false" />
-    </list>
+    <list default="true" id="c1c35b67-5c89-49f8-b33b-c9cfafc863e5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -215,12 +211,12 @@
       <workItem from="1548951262137" duration="8019000" />
       <workItem from="1548977523334" duration="598000" />
       <workItem from="1548996306012" duration="1306000" />
-      <workItem from="1548999824578" duration="13628000" />
+      <workItem from="1548999824578" duration="13883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23551000" />
+    <option name="totallyTimeSpent" value="23806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
