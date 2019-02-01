@@ -3,7 +3,7 @@ import courses from './courses.json'
 class CourseService {
   constructor() {
     this.courses = courses;
-    this.tempcourse = "";
+    this.tempcourse = courses;
   }
 
   createCourse = course => {
@@ -27,15 +27,19 @@ class CourseService {
   findAllCourses = () =>{
    return this.courses;
   }
+
   deleteCourse = deleteCourse =>
     this.courses = this.courses.filter(
       course => course.id !== deleteCourse.id
     )
 
-    updateCourse = (id, course) => {
-      for (var i = 0; i < this.courses.length; i++) {
+  updateCourse = (id, course) => {
+    this.courses = this.tempcourse;
+    console.log(this.courses.length);
+    for (var i = 0; i < this.courses.length; i++) {
         if(id === this.courses[i].id){
           this.courses[i] = course;
+          console.log("Executed");
         }
     }
   }
