@@ -19,13 +19,31 @@ class CourseEditor extends React.Component {
             newModuleName: ""
         }
     }
-    selectModule = module =>
+    selectModule = module =>{
         this.setState({
             module: module
         })
+    }
+
+    deleteModule = deleteModule => {
+        if(this.state.course.modules.length === 1){
+            alert("You cannot delete the last Module");
+        }
+        else {
+            var modules = this.state.course.modules.filter(
+                module => module.id !== deleteModule.id
+            )
+            var newCourse = this.state.course;
+            newCourse.modules = modules;
+            this.setState({
+                course: newCourse
+            })
+        }
+    }
+
     addModule = btn => {
         var newModule = {
-            "id": (this.state.course.modules.length+1),
+            "id": new Date().getTime(),
             "title": this.state.newModuleName,
             "lessons":[]
         }
@@ -36,6 +54,7 @@ class CourseEditor extends React.Component {
         });
         this.courseService.updateCourse(this.state.course.id, this.state.course);
     }
+
     changeModuleName = btn => {
         this.setState({
             newModuleName: document.getElementById("newModule").value
@@ -73,7 +92,11 @@ class CourseEditor extends React.Component {
                             </div>
                             <br/>
 
-                            <ModuleList course={this.state.course}/>
+                            <ModuleList course={this.state.course}
+                                        selectModule ={this.selectModule}
+                                        selectedModule = {this.state.module}
+                                        delModule = {this.deleteModule}
+                            />
 
                         </ul>
                     </nav>

@@ -1,9 +1,22 @@
 import React from 'react'
 
-const ModuleListItem = ({module}) =>
-    <div className="nav-link alert alert-dismissible alert-secondary">
-        <button type="button" className="close " data-dismiss="alert">&times;</button>
-        <a href="#" className="alert-link">{module.title}</a>.
-    </div>
+
+
+const ModuleListItem = ({module, selectModule, moduleColor, delModule, titleChanged}) =>
+    <div className={moduleColor(module)}
+         onClick={() => selectModule(module)} >
+        <div className="row">
+            <div className="col-8">
+                <a href="#" className="alert-link">{module.title}</a>.
+            </div>
+            <div className="col-2">
+                <button type="button" onClick={() => delModule(module)} className="fa fa-trash-alt btn" data-dismiss="alert"/>
+            </div>
+            <div className="col-2">
+                <button type="button" onClick={titleChanged} className="fa fa-edit btn" data-dismiss="alert"/>
+            </div>
+            </div>
+        </div>
+
 
 export default ModuleListItem;
