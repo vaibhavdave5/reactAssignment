@@ -22,12 +22,7 @@ class ModuleList extends React.Component {
             }
         )
     }
-    titleChanged = (event) => {
-        this.setState(
-            {
-                module: {title: event.target.value}
-            });
-    }
+
 
     moduleColor = (module) => {
         if(module.id === this.props.selectedModule.id){
@@ -49,7 +44,7 @@ class ModuleList extends React.Component {
                                 selectModule={this.props.selectModule}
                                 moduleColor={this.moduleColor}
                                 delModule={this.props.delModule}
-                                editModule={this.titleChanged}
+                                editModule={this.props.titleChanged}
                             />
                         )
                     })

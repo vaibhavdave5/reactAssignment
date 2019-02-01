@@ -60,6 +60,32 @@ class CourseEditor extends React.Component {
             newModuleName: document.getElementById("newModule").value
         })
     }
+
+    titleChanged = (module) => {
+        var txt;
+        var name = prompt("Please enter your new Module Name:", "");
+        if (name == null || name == "") {
+            alert("User cancelled the prompt.");
+        } else {
+            txt =  name ;
+            var modules = this.state.course.modules;
+
+            for (var i = 0; i < modules.length; i++) {
+                if(module.id === modules[i].id){
+                    modules[i].title = txt;
+                    console.log("Executed");
+                }
+            }
+
+            var newCourse = this.state.course;
+            newCourse.modules = modules;
+            this.setState(
+                {
+                    course: newCourse
+                });
+        }
+    }
+
     render() {
         return (
             <div>
@@ -96,6 +122,7 @@ class CourseEditor extends React.Component {
                                         selectModule ={this.selectModule}
                                         selectedModule = {this.state.module}
                                         delModule = {this.deleteModule}
+                                        titleChanged = {this.titleChanged}
                             />
 
                         </ul>
