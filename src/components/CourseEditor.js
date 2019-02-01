@@ -82,20 +82,7 @@ class CourseEditor extends React.Component {
                         </div>
 
                         <div className="row">
-                            <ul className="nav nav-pills navpad" >
-                                <li className="nav-item navpad"><a
-                                    className="nav-link active"
-                                    href="#">Topic 1</a></li>
-                                <li className="nav-item navpad"><a
-                                    className="nav-link btn btn-light"
-                                    href="#">Topic 2</a></li>
-                                <li className="nav-item navpad" ><a
-                                    className="nav-link btn btn-light"
-                                    href="#">Topic 3</a></li>
-                                <li className="nav-item navpad"><a
-                                    className="nav-link btn btn-light"
-                                    href="#">+</a></li>
-                            </ul>
+                            <TopicPills/>
                         </div>
                         <div className="row">
                             <div className="col-8"></div>
