@@ -31,7 +31,7 @@ const WidgetList = () =>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close-o f-icons" ></button>
+                                    <button className="fa fa-window-close f-icons" ></button>
                                 </div>
                             </div>
                         </div>
@@ -60,14 +60,16 @@ const WidgetList = () =>
                                        placeholder="Enter Widget Name" />
                             </div>
 
-                            <h3>Preview</h3>
                             <div className = "row">
-                                <div className = "col-10">
+                            <h3 className="float-md-left">Preview</h3>
+                            </div>
+                            <div className = "row">
+
+                                <div className = "float-md-left">
                                     <h1>Enter Heading</h1>
                                 </div>
 
                             </div>
-
                         </div>
                     </div>
 
@@ -99,7 +101,7 @@ const WidgetList = () =>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close-o f-icons"></button>
+                                    <button className="fa fa-window-close f-icons"></button>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +112,7 @@ const WidgetList = () =>
                                 <textarea
                                     rows="4"
                                     cols="100"
-                                    placeholder="Enter text here">sd</textarea>
+                                    placeholder="Enter text here"></textarea>
                             </div>
 
                             <div className="form-group">
@@ -121,14 +123,17 @@ const WidgetList = () =>
                                        placeholder="Enter Widget Name" />
                             </div>
 
-                            <h3>Preview</h3>
+
                             <div className = "row">
-                                <div className = "col-10">
+                                <h3 className="float-md-left">Preview</h3>
+                            </div>
+                            <div className = "row">
+
+                                <div className = "float-md-left">
                                     <h1>Enter text here</h1>
                                 </div>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -158,7 +163,7 @@ const WidgetList = () =>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close-o f-icons"></button>
+                                    <button className="fa fa-window-close f-icons"></button>
                                 </div>
                             </div>
                         </div>
@@ -184,12 +189,15 @@ const WidgetList = () =>
                                        placeholder="Enter Widget Name" />
                             </div>
 
-                            <h3>Preview</h3>
-
                             <div className = "row">
-                                <div className = "col-10">
+                                <h3 className="float-md-left">Preview</h3>
+                            </div>
+                            <div className = "row">
+
+                                <div className = "float-md-left">
                                     <h1>List</h1>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -221,7 +229,7 @@ const WidgetList = () =>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close-o f-icons" ></button>
+                                    <button className="fa fa-window-close f-icons" ></button>
                                 </div>
                             </div>
                         </div>
@@ -245,15 +253,22 @@ const WidgetList = () =>
                                        placeholder="Enter Widget Name" />
                             </div>
 
-                            <h3>Preview</h3>
+
                             <div className = "row">
-                                <div className = "col-10">
+                                <h3 className="float-md-left">Preview</h3>
+                            </div>
+                            <div className = "row">
+
+                                <div className = "float-md-left">
                                     <img src="https://www.w3schools.com/images/w3schools_green.jpg"
                                          alt="W3Schools.com"
                                          className = "img-widget" />
+
                                 </div>
 
                             </div>
+
+
 
                         </div>
                     </div>
@@ -287,7 +302,7 @@ const WidgetList = () =>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close-o f-icons" ></button>
+                                    <button className="fa fa-window-close f-icons" ></button>
                                 </div>
                             </div>
                         </div>
@@ -315,12 +330,18 @@ const WidgetList = () =>
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name"/>
                             </div>
-                            <h3>Preview</h3>
+
                             <div className = "row">
-                                <div className = "col-10">
+                                <h3 className="float-md-left">Preview</h3>
+                            </div>
+                            <div className = "row">
+
+                                <div className = "float-md-left">
                                     <a href="#">Link Text</a>
                                 </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>

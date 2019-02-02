@@ -51,9 +51,10 @@ export default class CourseList extends Component{
                     </div>
                 </nav>
 
-                <div style={{display: this.state.courseGrid}}>
-                    <Link to={this.state.view}>
-                        Change View</Link></div>
+                    <Link className="btn btn-dark"
+                        to={this.state.view}>
+                        Change View</Link>
+                <br/><br/>
 
             </div>
         )
