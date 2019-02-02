@@ -20,9 +20,23 @@ class WhiteBoard extends Component {
       var course = {
           id: new Date().getTime(),
           title: name,
-          modules: []
+          "modules": [
+              {
+                  "id": new Date().getTime(),
+                  "title": "jQuery",
+                  "lessons": [
+                      {
+                          "id": new Date().getTime(),
+                          "title": "Lesson 1",
+                          "topics": [
+                              {
+                                  "id": new Date().getTime(),
+                                  "title": "Topic 1"
+                              }
+                          ]
+                      }]
 
-      }
+          }]}
       this.setState({
           courses: this.courseService.createCourse(course)
       })

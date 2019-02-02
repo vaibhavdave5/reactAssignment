@@ -153,7 +153,17 @@ class CourseEditor extends React.Component {
         var newModule = {
             "id": new Date().getTime(),
             "title": this.state.newModuleName,
-            "lessons":[]
+            "lessons": [
+                {
+                    "id": new Date().getTime(),
+                    "title": "Lesson 1",
+                    "topics": [
+                        {
+                            "id": new Date().getTime(),
+                            "title": "Topic 1"
+                        }
+                    ]
+                }]
         }
         var newCourse = this.state.course;
         this.state.course.modules.push(newModule);
