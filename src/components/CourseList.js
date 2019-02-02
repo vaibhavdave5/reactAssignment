@@ -1,5 +1,5 @@
 import React from 'react';
-import Courses from './Courses'
+import CourseRow from './CourseRow'
 import CourseListNav from './CourseListNav';
 
 const CourseList = ({courses}) =>
@@ -25,7 +25,7 @@ const CourseList = ({courses}) =>
                 <tbody> 
                     {
                        courses.map(
-                           course => <Courses courseName = {course.title}
+                           course => <CourseRow courseName = {course.title}
                                               owner = "me"
                                               lastModified = "6:45"
                                       />
