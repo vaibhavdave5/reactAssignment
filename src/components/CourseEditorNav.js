@@ -11,7 +11,9 @@ const CourseEditorNav = ({title}) =>
         <ul className="list-unstyled components">
             <p>Modules</p>
             <div className="nav-link alert alert-dismissible alert-secondary">
-                <button type="button" className="close " data-dismiss="alert">&times;</button>
+                <button type="button"
+                        className="close "
+                        data-dismiss="alert">&times;</button>
                 <a href="#" className="alert-link">Module 1</a>.
             </div>
             <div className="nav-link alert alert-dismissible alert-primary">

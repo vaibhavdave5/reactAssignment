@@ -7,13 +7,20 @@ const ModuleListItem = ({module, selectModule, moduleColor, delModule, editModul
          onClick={() => selectModule(module)} >
         <div className="row">
             <div className="col-8">
-                <a href="#" className="alert-link">{module.title}</a>.
+                <a href="#"
+                   className="alert-link">{module.title}</a>.
             </div>
             <div className="col-2">
-                <button type="button" onClick={() => delModule(module)} className="fa fa-trash-alt btn" data-dismiss="alert"/>
+                <button type="button"
+                        onClick={() => delModule(module)}
+                        className="fa fa-trash-alt btn"
+                        data-dismiss="alert"/>
             </div>
             <div className="col-2">
-                <button type="button" onClick={() => editModule(module)} className="fa fa-edit btn" data-dismiss="alert"/>
+                <button type="button"
+                        onClick={() => editModule(module)}
+                        className="fa fa-edit btn"
+                        data-dismiss="alert"/>
             </div>
             </div>
         </div>

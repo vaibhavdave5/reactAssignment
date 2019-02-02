@@ -44,7 +44,11 @@ export default class CourseList extends Component{
                                    size = '80' />
                             <div className="input-group-append">
                                 <button className="btn btn-outline-success "
-                                         onClick={() =>this.props.addCourse(document.getElementById("courseName").value)}>Add</button>
+                                         onClick={() =>
+                                             this.props.addCourse(
+                                                 document.getElementById(
+                                                     "courseName").value)
+                                         }>Add</button>
                             </div>
                         </div>
 

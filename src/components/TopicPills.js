@@ -8,9 +8,12 @@ const TopicPills = ({lesson, deleteTopic, editTopic, addTopic, selectTopic, sele
             (topic) => {
               return(
                   <li className="nav-item navpad">
-                    <p className={selectTopicTheme(topic)} onClick={()=>selectTopic(topic)}>{topic.title} <h7>   </h7>
-                      <i className="fas fa-trash" onClick={() => deleteTopic(topic)}></i>
-                      <i className="fas fa-edit" onClick={() => editTopic(topic)}></i>
+                    <p className={selectTopicTheme(topic)}
+                       onClick={()=>selectTopic(topic)}>{topic.title} <h7>   </h7>
+                      <i className="fas fa-trash"
+                         onClick={() => deleteTopic(topic)}></i>
+                      <i className="fas fa-edit"
+                         onClick={() => editTopic(topic)}></i>
                     </p>
 
                   </li>
