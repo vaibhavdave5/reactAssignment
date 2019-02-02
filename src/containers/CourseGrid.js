@@ -1,6 +1,6 @@
 import React from 'react'
-import CourseCard from './CourseCard'
-import CourseListNav from './CourseListNav';
+import CourseCard from '../components/CourseCard'
+import CourseListNav from '../components/CourseListNav';
 
 const CourseGrid = ({courses, deleteCourse, addCourse}) =>
   <div>

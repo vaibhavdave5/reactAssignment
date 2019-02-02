@@ -1,10 +1,10 @@
 import React from 'react'
-import ModuleList from "./ModuleList";
-import LessonTabs from "./LessonTabs";
-import TopicPills from "./TopicPills";
+import ModuleList from "../components/ModuleList";
+import LessonTabs from "../components/LessonTabs";
+import TopicPills from "../components/TopicPills";
 import CourseService from "../services/CourseService"
-import CourseEditorNav from "./CourseEditorNav";
-import WidgetList from "./WidgetList";
+import CourseEditorNav from "../components/CourseEditorNav";
+import WidgetList from "../components/WidgetList";
 
 class CourseEditor extends React.Component {
     constructor(props) {

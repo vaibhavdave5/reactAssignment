@@ -1,5 +1,5 @@
 import React from "react";
-import CourseEditor from "./CourseEditor";
+import CourseEditor from "../containers/CourseEditor";
 
 
 const CourseEditorNav = ({title}) =>

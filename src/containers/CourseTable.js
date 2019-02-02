@@ -1,6 +1,6 @@
 import React from 'react';
-import CourseRow from './CourseRow'
-import CourseListNav from './CourseListNav';
+import CourseRow from '../components/CourseRow'
+import CourseListNav from '../components/CourseListNav';
 
 const CourseTable = ({courses, addCourse, deleteCourse}) =>
               <div>
@@ -13,7 +13,7 @@ const CourseTable = ({courses, addCourse, deleteCourse}) =>
                             scope="col">Owned by</th>
                         <th className="d-none d-sm-table-cell" 
                             scope="col">Last Modified</th>
-                        	
+
                     </tr>
                 </thead>
                 

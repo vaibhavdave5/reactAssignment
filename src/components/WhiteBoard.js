@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import CourseGrid from './CourseGrid'
-import CourseTable from './CourseTable'
+import CourseGrid from '../containers/CourseGrid'
+import CourseTable from '../containers/CourseTable'
 import CourseService from '../services/CourseService'
-import CourseEditor from "./CourseEditor";
+import CourseEditor from "../containers/CourseEditor";
 class WhiteBoard extends Component {
   constructor() {
     super();
