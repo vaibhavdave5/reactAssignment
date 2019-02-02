@@ -35,6 +35,52 @@ class CourseEditor extends React.Component {
         })
     }
 
+    deleteTopic = deletetopic =>{
+
+        var topics = this.state.lesson.topics.filter(
+            topic => deletetopic.id !== topic.id
+        )
+        var newLesson = this.state.lesson;
+        newLesson.topics = topics;
+        this.setState({
+            lesson: newLesson
+        })
+    }
+    editTopic = topic =>{
+        var txt;
+        var name = prompt("Please enter your new Topic Name:", "");
+        if (name == null || name == "") {
+            alert("User cancelled the prompt.");
+        } else {
+            txt =  name ;
+            var newTopic = this.state.lesson.topics;
+            for (var i = 0; i < newTopic.length; i++) {
+                if(topic.id === newTopic[i].id){
+                    newTopic[i].title = txt;
+                }
+            }
+            var newLesson = this.state.lesson;
+            newLesson.topics = newTopic;
+            this.setState({
+                lesson: newLesson
+            })
+        }
+        console.log("fsdf")
+    }
+
+    addTopic = () => {
+        var newTopic = {
+            "id": new Date().getTime(),
+            "title": "New Topic",
+        }
+        var newLesson = this.state.lesson;
+
+        newLesson.topics.push(newTopic);
+        this.setState({
+            lesson: newLesson
+        });
+    }
+
     lessonActive = lesson =>{
         if(lesson.id === this.state.lesson.id){
             return "active nav-link";
@@ -295,7 +341,12 @@ class CourseEditor extends React.Component {
                             </div>
                         </div>
                         <div className="row">
-                            <TopicPills/>
+                            <TopicPills lesson = {this.state.lesson}
+                                        deleteTopic={this.deleteTopic}
+                                        editTopic={this.editTopic}
+                                        addTopic={this.addTopic}
+                            />
+
                         </div>
                         <div className="row">
                             <div className="col-8"></div>
