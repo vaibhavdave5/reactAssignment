@@ -5,33 +5,23 @@ export default class CourseList extends Component{
     constructor(props) {
         super(props)
         this.courseService = new CourseService()
-
-        this.state={
-            courseList: 'none',
-            courseGrid: ''
-        }
-    }
-
-
-    handleClick = () =>
-    {
         var parts = window.location.href.split('/');
         var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
-        console.log(lastSegment)
-
-        if(lastSegment ==='table'){
-            this.setState({
-                courseList: 'none',
-                courseGrid: ''
-            })
+        if(lastSegment === 'table'){
+            this.state={
+                view: '/',
+            }
         }
         else{
-            this.setState({
-                courseList: '',
-                courseGrid: 'none'
-            })
+            this.state={
+                view: '/table',
+            }
         }
+
+
     }
+
+
 
     render(){
         return(
@@ -62,10 +52,9 @@ export default class CourseList extends Component{
                 </nav>
 
                 <div style={{display: this.state.courseGrid}}>
-                    <Link onClick={this.handleClick} to="/">
-                        Course Grid</Link></div>
-                <div style={{display: this.state.courseList}} >
-                    <Link to="/table" onClick={this.handleClick}>Course Table</Link></div>
+                    <Link to={this.state.view}>
+                        Change View</Link></div>
+
             </div>
         )
     }
