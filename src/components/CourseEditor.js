@@ -17,6 +17,7 @@ class CourseEditor extends React.Component {
             title: course.title,
             module: course.modules[0],
             lesson: course.modules[0].lessons[0],
+            topic: course.modules[0].lessons[0].topics[0],
             newModuleName: ""
         }
     }
@@ -27,6 +28,13 @@ class CourseEditor extends React.Component {
         this.setState({
             lesson: module.lessons[0]
         })
+    }
+
+    selectTopicTheme = topic =>{
+        if(topic.id === this.state.topic.id){
+            return "nav-link active"
+        }
+        return "nav-link"
     }
 
     selectLesson = lesson =>{
@@ -46,6 +54,13 @@ class CourseEditor extends React.Component {
             lesson: newLesson
         })
     }
+
+    selectTopic = selectedtopic =>{
+        this.setState({
+            topic: selectedtopic
+        })
+    }
+
     editTopic = topic =>{
         var txt;
         var name = prompt("Please enter your new Topic Name:", "");
@@ -65,7 +80,7 @@ class CourseEditor extends React.Component {
                 lesson: newLesson
             })
         }
-        console.log("fsdf")
+
     }
 
     addTopic = () => {
@@ -345,6 +360,8 @@ class CourseEditor extends React.Component {
                                         deleteTopic={this.deleteTopic}
                                         editTopic={this.editTopic}
                                         addTopic={this.addTopic}
+                                        selectTopic = {this.selectTopic}
+                                        selectTopicTheme={this.selectTopicTheme}
                             />
 
                         </div>

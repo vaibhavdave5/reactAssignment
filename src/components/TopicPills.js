@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TopicPills = ({lesson, deleteTopic, editTopic, addTopic}) =>
+const TopicPills = ({lesson, deleteTopic, editTopic, addTopic, selectTopic, selectTopicTheme}) =>
 
     <ul className="nav nav-pills navpad" >
       {
@@ -8,7 +8,7 @@ const TopicPills = ({lesson, deleteTopic, editTopic, addTopic}) =>
             (topic) => {
               return(
                   <li className="nav-item navpad">
-                    <p className="nav-link active">{topic.title} <h7>   </h7>
+                    <p className={selectTopicTheme(topic)} onClick={()=>selectTopic(topic)}>{topic.title} <h7>   </h7>
                       <i className="fas fa-trash" onClick={() => deleteTopic(topic)}></i>
                       <i className="fas fa-edit" onClick={() => editTopic(topic)}></i>
                     </p>
