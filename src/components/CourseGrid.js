@@ -4,7 +4,7 @@ import CourseListNav from './CourseListNav';
 
 const CourseGrid = ({courses, deleteCourse, addCourse}) =>
   <div>
-    <CourseListNav />
+    <CourseListNav addCourse={addCourse}/>
   <div className="row">
     {
         courses.map(course =>

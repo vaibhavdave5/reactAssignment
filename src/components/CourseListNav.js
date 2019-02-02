@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import CourseService from "../services/CourseService";
 export default class CourseList extends Component{
     constructor(props) {
-        super(props);
+        super(props)
+        this.courseService = new CourseService()
+
         this.state={
             courseList: 'none',
             courseGrid: ''
         }
     }
+
 
     handleClick = () =>
     {
@@ -42,6 +46,7 @@ export default class CourseList extends Component{
                     <div>
                         <div className="input-group mb-3">
                             <input type="text"
+                                   id="courseName"
                                    className="form-control"
                                    placeholder="New Course Name"
                                    aria-label="Add new course"
@@ -49,7 +54,7 @@ export default class CourseList extends Component{
                                    size = '80' />
                             <div className="input-group-append">
                                 <button className="btn btn-outline-success "
-                                        type="submit">Add</button>
+                                         onClick={() =>this.props.addCourse(document.getElementById("courseName").value)}>Add</button>
                             </div>
                         </div>
 

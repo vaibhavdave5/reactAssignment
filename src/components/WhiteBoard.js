@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import CourseGrid from './CourseGrid'
-import CourseList from './CourseList'
+import CourseTable from './CourseTable'
 import CourseService from '../services/CourseService'
 import CourseEditor from "./CourseEditor";
 class WhiteBoard extends Component {
@@ -16,10 +16,17 @@ class WhiteBoard extends Component {
     this.setState({
       courses: this.courseService.deleteCourse(course)
     })
-  addCourse = () =>
-    this.setState({
-      courses: this.courseService.addCourse(null)
-    })
+  addCourse = (name) => {
+      var course = {
+          id: new Date().getTime(),
+          title: name,
+          modules: []
+
+      }
+      this.setState({
+          courses: this.courseService.createCourse(course)
+      })
+  }
   render() {
     return (
        
@@ -36,7 +43,11 @@ class WhiteBoard extends Component {
           exact
           component={CourseEditor}/>
    <Route path='/table'
-          render={() => <CourseList courses={this.state.courses}/>}/>
+          render={() => <CourseTable
+                        courses={this.state.courses}
+                        addCourse={this.addCourse}
+                        deleteCourse={this.deleteCourse}
+          />}/>
  </div>
 </Router>
  
