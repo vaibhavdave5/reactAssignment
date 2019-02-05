@@ -43,5 +43,18 @@ class CourseService {
         }
     }
   }
+
+
+  // createWidget(topicId, widget)
+  // creates a new widget instance for the topic whose ID is topicId
+  // findWidgets(topicId)
+  // retrieves all widgets for topic whose ID is topicId
+  // findWidget(widgetId)
+  // retrieves one widget object whose ID is widgetId
+  // updateWidget(widgetId, widget)
+  // updates one widget object whose ID is widgetId
+  // deleteWidget(widgetId)
+  // removes widget whose ID is widgetId
+
 }
 export default CourseService
