@@ -9,7 +9,9 @@ const widgets =
                 size: 2,
                 listArr: ["Put each item","in new","line"],
                 listType: "1",
-                imageURL: "https://www.w3schools.com/images/w3schools_green.jpg"
+                imageURL: "https://www.w3schools.com/images/w3schools_green.jpg",
+                linkText: "Youtube",
+                linkURL: "https://www.youtube.com/"
             }
 
         ]
@@ -32,7 +34,9 @@ const widgetReducer = (state = widgets, action) => {
                         size: 2,
                         listArr: ["Put each item","in new","line"],
                         listType: "1",
-                        imageURL: "https://www.w3schools.com/images/w3schools_green.jpg"
+                        imageURL: "https://www.w3schools.com/images/w3schools_green.jpg",
+                        linkText: "Youtube",
+                        linkURL: "https://www.youtube.com/"
                     }
                 ]
             }

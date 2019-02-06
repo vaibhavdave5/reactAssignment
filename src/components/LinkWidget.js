@@ -44,14 +44,24 @@ const LinkWidget = ({widget, updateWidget, deleteWidget}) =>
                                        className="form-control"
                                        id="exampleInputHeading"
                                        aria-describedby="emailHelp"
-                                       placeholder="Enter Link Here"/>
+                                       placeholder={widget.linkURL}
+                                       onChange={(event) => {
+                                           widget.linkURL = event.target.value
+                                           updateWidget(widget)
+                                       }}
+                                />
                             </div>
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
                                        id="exampleInputHeading"
                                        aria-describedby="emailHelp"
-                                       placeholder="Link text"/>
+                                       placeholder={widget.linkText}
+                                       onChange={(event) => {
+                                           widget.linkText = event.target.value
+                                           updateWidget(widget)
+                                       }}
+                                />
                             </div>
                             <div className="form-group">
                                 <input type="text"
@@ -67,7 +77,7 @@ const LinkWidget = ({widget, updateWidget, deleteWidget}) =>
                             <div className = "row">
 
                                 <div className = "float-md-left">
-                                    <a href="#">Link Text</a>
+                                    <a href={widget.linkURL}>{widget.linkText}</a>
                                 </div>
 
                             </div>
