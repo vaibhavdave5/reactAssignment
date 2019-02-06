@@ -26,6 +26,7 @@ const widgetReducer = (state = widgets, action) => {
                 widgets: [
                     ...state.widgets,
                     {
+                        id:   new Date().getTime(),
                         type: 'HEADING',
                         text: 'New Widget',
                         size: 1

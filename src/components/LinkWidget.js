@@ -18,16 +18,21 @@ const LinkWidget = ({widget, updateWidget, deleteWidget}) =>
                                     <button className="fa fa-arrow-circle-down f-icons"></button>
                                 </div>
                                 <div className="col-5">
-                                    <select className="custom-select type-widget">
-                                        <option>Link</option>
-                                        <option>List</option>
-                                        <option>Paragraph</option>
-                                        <option>Heading</option>
-                                        <option>Image</option>
+                                    <select className="custom-select type-widget"
+                                            onChange={(event) => {
+                                                widget.type = event.target.value
+                                                updateWidget(widget)
+                                            }} value={widget.type}>
+                                        <option value="HEADING">Heading</option>
+                                        <option value="IMAGE">Image</option>
+                                        <option value ="PARAGRAPH">Paragraph</option>
+                                        <option value="LIST">List</option>
+                                        <option value="LINK">Link</option>
                                     </select>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-window-close f-icons" ></button>
+                                    <button className="fa fa-window-close f-icons"
+                                            onClick={() => deleteWidget(widget)}></button>
                                 </div>
                             </div>
                         </div>

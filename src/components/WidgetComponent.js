@@ -16,16 +16,24 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget}) =>
             />
             ||
             widget.type=='IMAGE'   &&
-            <ImageWidget   widget={widget}/>
+            <ImageWidget   updateWidget={updateWidget}
+                           widget={widget}
+                           deleteWidget={deleteWidget}/>
             ||
             widget.type=='PARAGRAPH'   &&
-            <ParagraphWidget   widget={widget}/>
+            <ParagraphWidget   updateWidget={updateWidget}
+                               widget={widget}
+                               deleteWidget={deleteWidget}/>
             ||
             widget.type=='LIST'   &&
-            <ListWidget   widget={widget}/>
+            <ListWidget   updateWidget={updateWidget}
+                          widget={widget}
+                          deleteWidget={deleteWidget}/>
             ||
             widget.type=='LINK'   &&
-            <LinkWidget   widget={widget}/>
+            <LinkWidget   updateWidget={updateWidget}
+                          widget={widget}
+                          deleteWidget={deleteWidget}/>
         }
     </div>
 
