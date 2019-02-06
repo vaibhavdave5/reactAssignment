@@ -44,7 +44,12 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget}) =>
                                 <textarea
                                     rows="4"
                                     cols="100"
-                                    placeholder="Enter text here"></textarea>
+                                    placeholder="Enter text here"
+                                    onChange={(event) => {
+                                        widget.text = event.target.value
+                                        updateWidget(widget)
+                                    }}
+                                ></textarea>
                             </div>
 
                             <div className="form-group">
@@ -57,12 +62,12 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget}) =>
 
 
                             <div className = "row">
-                                <h3 className="float-md-left">Preview</h3>
+                                <h5 className="float-md-left">Preview</h5>
                             </div>
                             <div className = "row">
 
                                 <div className = "float-md-left">
-                                    <h1>Enter text here</h1>
+                                    <h1>{widget.text}</h1>
                                 </div>
 
                             </div>

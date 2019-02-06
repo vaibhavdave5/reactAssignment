@@ -11,7 +11,8 @@ const widgets =
             {
                 id: 234,
                 title: 'Widget 2',
-                type: 'IMAGE'
+                type: 'IMAGE',
+                text: 'This is a heading'
             }
         ]
     }
@@ -26,7 +27,7 @@ const widgetReducer = (state = widgets, action) => {
                 widgets: [
                     ...state.widgets,
                     {
-                        id:   new Date().getTime(),
+                        id:   new Date().getTime()+state.widgets.length,
                         type: 'HEADING',
                         text: 'New Widget',
                         size: 1
