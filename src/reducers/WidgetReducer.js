@@ -8,7 +8,8 @@ const widgets =
                 text: 'Sample Text',
                 size: 2,
                 listArr: ["Put each item","in new","line"],
-                listType: "1"
+                listType: "1",
+                imageURL: "https://www.w3schools.com/images/w3schools_green.jpg"
             }
 
         ]
@@ -30,7 +31,8 @@ const widgetReducer = (state = widgets, action) => {
                         text: 'Sample Text',
                         size: 2,
                         listArr: ["Put each item","in new","line"],
-                        listType: "1"
+                        listType: "1",
+                        imageURL: "https://www.w3schools.com/images/w3schools_green.jpg"
                     }
                 ]
             }

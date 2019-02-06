@@ -44,8 +44,11 @@ const ImageWidget = ({widget, updateWidget, deleteWidget}) =>
                                        className="form-control"
                                        id="exampleInputHeading"
                                        aria-describedby="emailHelp"
-                                       placeholder="Enter URL Here"
-                                       value="https://www.w3schools.com/images/w3schools_green.jpg"
+                                       placeholder="https://www.w3schools.com/images/w3schools_green.jpg"
+                                       onChange={event => {
+                                           widget.imageURL = event.target.value
+                                           updateWidget(widget)
+                                       }}
                                 />
                             </div>
                             <div className="form-group">
@@ -63,7 +66,7 @@ const ImageWidget = ({widget, updateWidget, deleteWidget}) =>
                             <div className = "row">
 
                                 <div className = "float-md-left">
-                                    <img src="https://www.w3schools.com/images/w3schools_green.jpg"
+                                    <img src={widget.imageURL}
                                          alt="W3Schools.com"
                                          className = "img-widget" />
 
