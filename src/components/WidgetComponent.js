@@ -1,25 +1,31 @@
 import React from 'react'
 import HeadingWidget from './HeadingWidget'
 import ImageWidget from './ImageWidget'
+import ParagraphWidget from "./ParagraphWidget";
+import ListWidget from "./ListWidget";
+import LinkWidget from "./LinkWidget";
 
 const WidgetComponent = ({widget, deleteWidget, updateWidget}) =>
     <div>
-        <button onClick={() => deleteWidget(widget)}>Delete</button>
-        <select
-            onChange={(event) => {
-                widget.type = event.target.value
-                updateWidget(widget)
-            }}
-            className="form-control" value={widget.type}>
-            <option value="HEADING">Heading</option>
-            <option value="IMAGE">Image</option>
-        </select>
         {
             widget.type=='HEADING' &&
             <HeadingWidget
                 updateWidget={updateWidget}
-                widget={widget}/> ||
-            widget.type=='IMAGE'   && <ImageWidget   widget={widget}/>
+                widget={widget}
+                deleteWidget={deleteWidget}
+            />
+            ||
+            widget.type=='IMAGE'   &&
+            <ImageWidget   widget={widget}/>
+            ||
+            widget.type=='PARAGRAPH'   &&
+            <ParagraphWidget   widget={widget}/>
+            ||
+            widget.type=='LIST'   &&
+            <ListWidget   widget={widget}/>
+            ||
+            widget.type=='LINK'   &&
+            <LinkWidget   widget={widget}/>
         }
     </div>
 
