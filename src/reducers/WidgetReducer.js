@@ -5,15 +5,12 @@ const widgets =
                 id: 123,
                 title: 'Widget 1',
                 type: 'HEADING',
-                text: 'This is a heading',
-                size: 2
-            },
-            {
-                id: 234,
-                title: 'Widget 2',
-                type: 'IMAGE',
-                text: 'This is a heading'
+                text: 'Sample Text',
+                size: 2,
+                listArr: ["Put each item","in new","line"],
+                listType: "1"
             }
+
         ]
     }
 const widgetReducer = (state = widgets, action) => {
@@ -27,10 +24,13 @@ const widgetReducer = (state = widgets, action) => {
                 widgets: [
                     ...state.widgets,
                     {
-                        id:   new Date().getTime()+state.widgets.length,
+                        id: new Date().getTime(),
+                        title: 'Widget 1',
                         type: 'HEADING',
-                        text: 'New Widget',
-                        size: 1
+                        text: 'Sample Text',
+                        size: 2,
+                        listArr: ["Put each item","in new","line"],
+                        listType: "1"
                     }
                 ]
             }
