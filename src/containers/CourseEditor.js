@@ -6,6 +6,14 @@ import CourseService from "../services/CourseService"
 import CourseEditorNav from "../components/CourseEditorNav";
 import WidgetList from "../components/WidgetList";
 
+import WidgetListContainer from '../containers/WidgetListContainer'
+import widgetReducer from '../reducers/WidgetReducer'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+const store = createStore(widgetReducer);
+
+
 class CourseEditor extends React.Component {
     constructor(props) {
         super(props)
@@ -395,7 +403,12 @@ class CourseEditor extends React.Component {
                             </div>
                         </div>
                         <br />
-                        <WidgetList/>
+                        {/*<WidgetList/>*/}
+
+                        <Provider store={store}>
+                            <WidgetListContainer/>
+                        </Provider>
+
                     </div>
                 </div>
             </div>
