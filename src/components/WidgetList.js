@@ -1,7 +1,7 @@
 import React from 'react'
 import WidgetComponent from './WidgetComponent'
 
-const WidgetList = ({widgets, addWidget, deleteWidget, updateWidget}) =>
+const WidgetList = ({widgets, addWidget, deleteWidget, updateWidget, upWidget, downWidget}) =>
     <div>
         <h1>Widget List {widgets.length}</h1>
         <div className="list-group">
@@ -11,7 +11,10 @@ const WidgetList = ({widgets, addWidget, deleteWidget, updateWidget}) =>
                         key={widget.id}
                         updateWidget={updateWidget}
                         deleteWidget={deleteWidget}
-                        widget={widget}/>
+                        widget={widget}
+                        upWidget={upWidget}
+                        downWidget={downWidget}
+                    />
                 )
             }
             <div className="row">

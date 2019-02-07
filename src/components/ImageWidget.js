@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ImageWidget = ({widget, updateWidget, deleteWidget}) =>
+const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget}) =>
 
             <div className="row rowpad">
                 <div className="col-1"></div>

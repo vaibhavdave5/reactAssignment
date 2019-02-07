@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListWidget = ({widget, updateWidget, deleteWidget}) =>
+const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget}) =>
 
     <div className="row rowpad" >
         <div className="col-1"></div>

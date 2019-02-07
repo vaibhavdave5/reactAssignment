@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HeadingWidget = ({widget, updateWidget, deleteWidget}) =>
+const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget}) =>
 
                 <div className="row rowpad" >
                 <div className="col-1"></div>
@@ -12,10 +12,14 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget}) =>
                         <div className="col-4">
                             <div className="row">
                                 <div className="col-2">
-                                    <button className="fa fa-arrow-circle-up f-icons" ></button>
+                                    <button className="fa fa-arrow-circle-up f-icons"
+                                            disabled={widget.hideup}
+                                            onClick={() => upWidget(widget)}></button>
                                 </div>
                                 <div className="col-2">
-                                    <button className="fa fa-arrow-circle-down f-icons" ></button>
+                                    <button className="fa fa-arrow-circle-down f-icons"
+                                            disabled={widget.hidedown}
+                                            onClick={() => downWidget(widget)}></button>
                                 </div>
                                 <div className="col-5">
                                     <select className="custom-select type-widget"

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const ParagraphWidget = ({widget, updateWidget, deleteWidget}) =>
+const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget}) =>
 
             <div className="row rowpad" >
                 <div className="col-1"></div>
