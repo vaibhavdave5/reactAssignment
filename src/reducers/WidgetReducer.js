@@ -36,7 +36,7 @@ const widgetReducer = (state = widgets, action) => {
             state.widgets[index].index = index;
 
             for(var i=0 ; i < state.widgets.length; i++){
-                if(state.widgets.length === 0){
+                if(state.widgets.length === 1){
                     state.widgets[i].hidedown ="disabled"
                     state.widgets[i].hideup ="disabled"
                 }
@@ -72,7 +72,7 @@ const widgetReducer = (state = widgets, action) => {
             state.widgets[down_index].index = down_index;
             state.widgets[index].index = index;
             for(var i=0 ; i < state.widgets.length; i++){
-                if(state.widgets.length === 0){
+                if(state.widgets.length === 1){
                     state.widgets[i].hidedown ="disabled"
                     state.widgets[i].hideup ="disabled"
                 }
@@ -97,19 +97,19 @@ const widgetReducer = (state = widgets, action) => {
         }
 
         case 'DELETE_WIDGET': {
+            state.widgets = state.widgets.filter(widget => widget.id !== action.widget.id)
+            if(state.widgets.length === 0) {
+                return {widgets: state.widgets}
+            }
+
             if(state.widgets.length <= 1) {
                 state.widgets[0].hidedown = "disabled"
+                state.widgets[0].hideup =  "disabled"
             }
-            return {
-                widgets: state.widgets.filter(widget => widget.id !== action.widget.id)
-            }
+            return {widgets: state.widgets}
         }
         case 'ADD_WIDGET': {
-
-            state.widgets[0].hidedown = ""
-
-            return {
-                widgets: [
+                state.widgets = [
                     ...state.widgets,
                     {
                         id: new Date().getTime(),
@@ -127,7 +127,33 @@ const widgetReducer = (state = widgets, action) => {
                         hidedown: "disabled"
                     }
                 ]
+
+
+            for(var i=0 ; i < state.widgets.length; i++){
+                if(state.widgets.length === 1){
+                    state.widgets[i].hidedown ="disabled"
+                    state.widgets[i].hideup ="disabled"
+                }
+                else{
+                    if(i===0){
+                        state.widgets[i].hideup = "disabled"
+                        state.widgets[i].hidedown = ""
+                    }
+
+                    else if(i===(state.widgets.length-1)){
+                        state.widgets[i].hidedown = "disabled"
+                        state.widgets[i].hideup = ""
+                    }
+
+                    else{
+                        state.widgets[i].hidedown = ""
+                        state.widgets[i].hideup = ""
+                    }
+                }
             }
+
+            return{widgets: state.widgets}
+
         }
 
         case 'UPDATE_WIDGET':

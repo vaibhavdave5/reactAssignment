@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c35b67-5c89-49f8-b33b-c9cfafc863e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeadingWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeadingWidget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ImageWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageWidget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LinkWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LinkWidget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ListWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListWidget.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ParagraphWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ParagraphWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WidgetComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WidgetComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/WidgetList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WidgetList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/WidgetListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/WidgetListContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/WidgetReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/WidgetReducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,55 +20,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/WidgetListContainer.js">
+        <entry file="file://$PROJECT_DIR$/src/components/HeadingWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="22" column="38" selection-start-line="13" selection-start-column="32" selection-end-line="22" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/LinkWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ListWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ParagraphWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/reducers/WidgetReducer.js">
+        <entry file="file://$PROJECT_DIR$/src/components/ImageWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="77" column="17" lean-forward="true" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/HeadingWidget.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1166">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WidgetList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="89" selection-start-line="3" selection-start-column="89" selection-end-line="3" selection-end-column="89" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WidgetComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-64">
-              <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -129,14 +115,14 @@
         <option value="$PROJECT_DIR$/src/services/CourseService.js" />
         <option value="$PROJECT_DIR$/src/containers/CourseEditor.js" />
         <option value="$PROJECT_DIR$/src/components/WidgetComponent.js" />
-        <option value="$PROJECT_DIR$/src/components/LinkWidget.js" />
-        <option value="$PROJECT_DIR$/src/components/ListWidget.js" />
-        <option value="$PROJECT_DIR$/src/components/ImageWidget.js" />
-        <option value="$PROJECT_DIR$/src/components/ParagraphWidget.js" />
         <option value="$PROJECT_DIR$/src/components/WidgetList.js" />
         <option value="$PROJECT_DIR$/src/components/HeadingWidget.js" />
         <option value="$PROJECT_DIR$/src/containers/WidgetListContainer.js" />
         <option value="$PROJECT_DIR$/src/reducers/WidgetReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/LinkWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/ListWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/ParagraphWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/ImageWidget.js" />
       </list>
     </option>
   </component>
@@ -239,12 +225,12 @@
       <workItem from="1548996306012" duration="1306000" />
       <workItem from="1548999824578" duration="33802000" />
       <workItem from="1549404011629" duration="1679000" />
-      <workItem from="1549409542526" duration="24796000" />
+      <workItem from="1549409542526" duration="27086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70200000" />
+    <option name="totallyTimeSpent" value="72490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -435,47 +421,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LinkWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="77" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ListWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="77" selection-start-line="2" selection-start-column="77" selection-end-line="2" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ImageWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="78" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ParagraphWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="82" selection-start-line="3" selection-start-column="82" selection-end-line="3" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/WidgetListContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/WidgetComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
+        <state relative-caret-position="-370">
           <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -493,17 +441,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HeadingWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1166">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/WidgetReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
-          <caret line="77" column="17" lean-forward="true" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
+          <caret line="152" column="13" selection-start-line="152" selection-start-column="13" selection-end-line="152" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/WidgetListContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HeadingWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="38" selection-start-line="13" selection-start-column="32" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LinkWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ListWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ParagraphWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ImageWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
