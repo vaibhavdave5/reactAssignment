@@ -3,8 +3,11 @@ const widgets =
     {
         widgets: []
     }
+const mapWidgets = {
+    "1" : widgets
+}
 
-const widgetReducer = (state = widgets, action) => {
+const widgetReducer = (state = {widgets, mapWidgets}, action) => {
     switch(action.type) {
         case 'UP_WIDGET':
         {
@@ -148,8 +151,33 @@ const widgetReducer = (state = widgets, action) => {
                     widget.id === action.widget.id ? action.widget : widget
                 )
             }
+
+
+        case 'FIND_WIDGET':
+        {
+            for(var i=0 ; i < state.widgets.length; i++){
+                if(state.widgets[i].id === action.widget.id){
+                    return {widgets: state.widgets[i]}
+                }
+            }
+        }
+        case  'FIND_ALL_WIDGETS_FOR_TOPIC':{
+
+                return{
+                    widgets : state.mapWidgets[action.id]
+                }
+
+        }
+
+        case 'FIND_ALL_WIDGETS':{
+            return{
+                widgets: state.widgets
+            }
+        }
+
+
         default: {
-            return state;
+            return state.widgets;
         }
     }
 }
