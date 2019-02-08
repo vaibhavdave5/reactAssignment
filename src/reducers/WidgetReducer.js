@@ -1,23 +1,7 @@
 
 const widgets =
     {
-        widgets: [
-            {
-                id: 123,
-                title: 'Widget 1',
-                type: 'HEADING',
-                text: 'Sample Text',
-                size: 2,
-                listArr: ["Put each item","in new","line"],
-                listType: "1",
-                imageURL: "https://www.w3schools.com/images/w3schools_green.jpg",
-                linkText: "Youtube",
-                linkURL: "https://www.youtube.com/",
-                index: 0,
-                hideup: "disabled",
-                hidedown: "disabled"
-            }
-        ]
+        widgets: []
     }
 
 const widgetReducer = (state = widgets, action) => {
@@ -109,6 +93,7 @@ const widgetReducer = (state = widgets, action) => {
             return {widgets: state.widgets}
         }
         case 'ADD_WIDGET': {
+            console.log(action.topic)
                 state.widgets = [
                     ...state.widgets,
                     {
@@ -163,8 +148,9 @@ const widgetReducer = (state = widgets, action) => {
                     widget.id === action.widget.id ? action.widget : widget
                 )
             }
-        default:
+        default: {
             return state;
+        }
     }
 }
 

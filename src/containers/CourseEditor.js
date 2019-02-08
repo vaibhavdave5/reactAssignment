@@ -406,7 +406,7 @@ class CourseEditor extends React.Component {
                         {/*<WidgetList/>*/}
 
                         <Provider store={store}>
-                            <WidgetListContainer/>
+                            <WidgetListContainer id={this.state.topic.id} />
                         </Provider>
 
                     </div>

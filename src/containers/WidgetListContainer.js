@@ -6,42 +6,48 @@ const stateToPropertyMapper = state => ({
     widgets: state.widgets
 })
 
-const dispatchToPropertyMapper = dispatch => ({
+const dispatchToPropertyMapper = (dispatch , myprops) => ({
     deleteWidget: widget =>
         dispatch({
             type: 'DELETE_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         }),
     addWidget: () =>
         dispatch({
-            type: 'ADD_WIDGET'
+            type: 'ADD_WIDGET',
+            topic: myprops.id
         }),
     updateWidget: widget =>
         dispatch({
             type: 'UPDATE_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         }),
     upWidget: widget => {
         dispatch({
             type: 'UP_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         })
         dispatch({
             type: 'UPDATE_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         })
     },
     downWidget: widget => {
         dispatch({
             type: 'DOWN_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         })
         dispatch({
             type: 'UPDATE_WIDGET',
-            widget: widget
+            widget: widget,
+            topic: myprops.id
         })
     }
-
 })
 
 const WidgetListContainer = connect(
