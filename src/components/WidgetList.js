@@ -1,7 +1,8 @@
 import React from 'react'
 import WidgetComponent from './WidgetComponent'
 
-const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget}) =>
+const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
+                        findAllWidgetsForTopic}) =>
     <div>
         <h1>Widget List {widgets.length}</h1>
         <div className="list-group">

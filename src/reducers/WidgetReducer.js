@@ -7,7 +7,7 @@ const mapWidgets = {
     "1" : widgets
 }
 
-const widgetReducer = (state = {widgets, mapWidgets}, action) => {
+const widgetReducer = (state = widgets, action) => {
     switch(action.type) {
         case 'UP_WIDGET':
         {
@@ -96,7 +96,6 @@ const widgetReducer = (state = {widgets, mapWidgets}, action) => {
             return {widgets: state.widgets}
         }
         case 'ADD_WIDGET': {
-            console.log(action.topic)
                 state.widgets = [
                     ...state.widgets,
                     {
@@ -112,7 +111,8 @@ const widgetReducer = (state = {widgets, mapWidgets}, action) => {
                         linkURL: "https://www.youtube.com/",
                         index: state.widgets.length,
                         hideup: "",
-                        hidedown: "disabled"
+                        hidedown: "disabled",
+                        topicId: action.id
                     }
                 ]
 
@@ -161,12 +161,15 @@ const widgetReducer = (state = {widgets, mapWidgets}, action) => {
                 }
             }
         }
+
         case  'FIND_ALL_WIDGETS_FOR_TOPIC':{
-
-                return{
-                    widgets : state.mapWidgets[action.id]
+            var temparr= []
+            for(var i=0 ; i < state.widgets.length; i++){
+                if(state.widgets[i].topicId === action.id){
+                    temparr.push(state.widgets[i])
                 }
-
+            }
+            return {widgets: temparr}
         }
 
         case 'FIND_ALL_WIDGETS':{
@@ -177,7 +180,7 @@ const widgetReducer = (state = {widgets, mapWidgets}, action) => {
 
 
         default: {
-            return state.widgets;
+            return state;
         }
     }
 }

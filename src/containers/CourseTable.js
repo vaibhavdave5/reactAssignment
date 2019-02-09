@@ -24,9 +24,7 @@ const CourseTable = ({courses, addCourse, deleteCourse}) =>
                                               owner = "me"
                                               lastModified = "6:45"
                                                 deleteCourse={deleteCourse}
-
                                       />
-
                        )
                     }
         

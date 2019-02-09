@@ -47,7 +47,14 @@ const dispatchToPropertyMapper = (dispatch , myprops) => ({
             widget: widget,
             topic: myprops.id
         })
+    },
+    findAllWidgetsForTopic: () =>{
+        dispatch({
+            type: 'FIND_ALL_WIDGETS_FOR_TOPIC',
+            topic: myprops.id
+        })
     }
+
 })
 
 const WidgetListContainer = connect(
