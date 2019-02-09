@@ -55,7 +55,9 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
 
                             preview?
                             <div className="form-group">
+                                <label htmlFor="p-input-1">Paragraph Input</label>
                                 <textarea
+                                    id = "p-input-1"
                                     rows="4"
                                     cols="100"
                                     placeholder="Enter text here"
@@ -71,9 +73,10 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
                             {
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="p-input">Widget Name</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputWidgetName"
+                                       id="p-input"
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name" />
                             </div>

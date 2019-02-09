@@ -53,9 +53,10 @@ const LinkWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
 
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="linkName">Enter Link here</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputHeading"
+                                       id="linkName"
                                        aria-describedby="emailHelp"
                                        placeholder={widget.linkURL}
                                        onChange={(event) => {
@@ -71,9 +72,10 @@ const LinkWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
 
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="linkText">Enter Link text</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputHeading"
+                                       id="linkText"
                                        aria-describedby="emailHelp"
                                        placeholder={widget.linkText}
                                        onChange={(event) => {
@@ -88,9 +90,10 @@ const LinkWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
                             {
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="wname">Enter Widget Name</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputWidgetName"
+                                       id="wname"
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name"/>
                             </div>

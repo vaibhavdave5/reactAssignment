@@ -54,6 +54,7 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
 
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="exampleInputHeading">Heading</label>
                                 <input type="text"
                                        className="form-control"
                                        id="exampleInputHeading"
@@ -74,7 +75,9 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                              preview?
 
                             <div className="form-group">
+                                <label htmlFor="sizer">Size</label>
                                 <select className="custom-select"
+                                        id="sizer"
                                         onChange={event => {
                                             widget.size = parseInt(event.target.value)
                                             updateWidget(widget)
@@ -94,9 +97,10 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                                 preview?
 
                             <div className="form-group">
+                                <label htmlFor="w-name">Widget Name</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputWidgetName"
+                                       id="w-name"
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name" />
                             </div>

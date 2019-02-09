@@ -56,9 +56,10 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
 
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="imageLabel">Image URL</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputHeading"
+                                       id="imageLabel"
                                        aria-describedby="emailHelp"
                                        placeholder="https://www.w3schools.com/images/w3schools_green.jpg"
                                        onChange={event => {
@@ -74,9 +75,10 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
 
                                 preview?
                             <div className="form-group">
+                                <label htmlFor="widgetName">Widget Name</label>
                                 <input type="text"
                                        className="form-control"
-                                       id="exampleInputWidgetName"
+                                       id="widgetName"
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name" />
                             </div>
@@ -95,6 +97,7 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
                             <div className = "row">
 
                                 <div className = "float-md-left">
+
                                     <img src={widget.imageURL}
                                          alt="W3Schools.com"
                                          className = "img-widget" />
