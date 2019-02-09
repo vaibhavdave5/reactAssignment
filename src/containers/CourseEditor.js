@@ -3,9 +3,6 @@ import ModuleList from "../components/ModuleList";
 import LessonTabs from "../components/LessonTabs";
 import TopicPills from "../components/TopicPills";
 import CourseService from "../services/CourseService"
-import CourseEditorNav from "../components/CourseEditorNav";
-import WidgetList from "../components/WidgetList";
-
 import WidgetListContainer from '../containers/WidgetListContainer'
 import widgetReducer from '../reducers/WidgetReducer'
 import {createStore} from 'redux'
@@ -403,7 +400,15 @@ class CourseEditor extends React.Component {
                                         className="btn btn-primary"
                                         data-toggle="button"
                                         aria-pressed="false"
-                                        autocomplete="off">Preview</button>
+                                        autocomplete="off"
+                                        onClick= {
+                                            () => {
+                                                store.dispatch({
+                                                    type: 'TOGGLE'
+                                                })
+                                            }
+                                        }
+                                        >Preview</button>
                                 <button type="button"
                                         className="btn btn-warning"
                                         data-toggle="button"

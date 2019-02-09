@@ -21,8 +21,6 @@ export default class CourseList extends Component{
 
     }
 
-
-
     render(){
         return(
             <div>

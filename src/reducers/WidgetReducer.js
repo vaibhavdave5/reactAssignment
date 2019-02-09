@@ -20,11 +20,12 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
 
             };
         case 'TOGGLE':
-            var s = !state.preview;
-            var w = state.widgets
+            alert("Here we are");
+            var preview = !state.preview;
+            var widgets = state.widgets
             return{
-                widgets:w,
-                preview: s,
+                widgets:widgets,
+                preview: preview,
                 present: false
             };
         case 'ADD_WIDGET':
@@ -32,7 +33,8 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
                 id: new Date().getTime(),
                 type: 'HEADING',
                 text: 'New Widget',
-                size: 1
+                size: 1,
+                listType : "1"
             });
             return {
                 widgets: state.widgets,

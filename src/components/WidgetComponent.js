@@ -5,7 +5,7 @@ import ParagraphWidget from "./ParagraphWidget";
 import ListWidget from "./ListWidget";
 import LinkWidget from "./LinkWidget";
 
-const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidget}) =>
+const WidgetComponent = ({widget,preview, deleteWidget, updateWidget, upWidget, downWidget}) =>
     <div>
         {
             widget.type=='HEADING' &&
@@ -15,6 +15,7 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidg
                 deleteWidget={deleteWidget}
                 upWidget={upWidget}
                 downWidget={downWidget}
+                preview={preview}
             />
             ||
             widget.type=='IMAGE'   &&
@@ -23,6 +24,7 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidg
                            deleteWidget={deleteWidget}
                            upWidget={upWidget}
                            downWidget={downWidget}
+                           preview={preview}
             />
             ||
             widget.type=='PARAGRAPH'   &&
@@ -31,6 +33,7 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidg
                                deleteWidget={deleteWidget}
                                upWidget={upWidget}
                                downWidget={downWidget}
+                               preview={preview}
             />
             ||
             widget.type=='LIST'   &&
@@ -39,6 +42,7 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidg
                           deleteWidget={deleteWidget}
                           upWidget={upWidget}
                           downWidget={downWidget}
+                          preview={preview}
             />
             ||
             widget.type=='LINK'   &&
@@ -47,6 +51,7 @@ const WidgetComponent = ({widget, deleteWidget, updateWidget, upWidget, downWidg
                           deleteWidget={deleteWidget}
                           upWidget={upWidget}
                           downWidget={downWidget}
+                          preview={preview}
             />
         }
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LinkWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget}) =>
+const LinkWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, preview}) =>
 
 <div className="row rowpad">
                 <div className="col-1"></div>

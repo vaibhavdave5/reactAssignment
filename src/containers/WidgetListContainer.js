@@ -18,8 +18,9 @@ const dispatchToPropertyMatcher = (dispatch, myProps) => ({
         }),
     togglePreview: () =>
         dispatch({
-            type : 'TOGGLE_PREVIEW',
-        }),
+            type : 'TOGGLE',
+        })
+    ,
 
     deleteWidget: (widget) =>
         dispatch({

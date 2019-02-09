@@ -2,7 +2,7 @@ import React from 'react'
 import WidgetComponent from './WidgetComponent'
 
 const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
-                        loadWidgets}) => {
+                        loadWidgets, preview}) => {
     loadWidgets();
     return (<div>
         <h1>Widget List {widgets.length}</h1>
@@ -16,6 +16,7 @@ const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWi
                         widget={widget}
                         upWidget={upWidget}
                         downWidget={downWidget}
+                        preview={preview}
                     />
                 )
             }
