@@ -5,6 +5,9 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
             <div className="row rowpad">
                 <div className="col-1"></div>
                 <div className="col-10 editor-border">
+
+                    {
+                        preview?
                     <div className="row">
                         <div className="col-8">
                             <h2>Image Widget</h2>
@@ -41,8 +44,17 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
                             </div>
                         </div>
                     </div>
+
+                    : ''
+                    }
+
+
                     <div className="row">
                         <div className="col-12">
+
+                            {
+
+                                preview?
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
@@ -55,6 +67,12 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
                                        }}
                                 />
                             </div>
+                                    : ''
+                            }
+
+                            {
+
+                                preview?
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
@@ -62,11 +80,18 @@ const ImageWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, 
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name" />
                             </div>
+                                    : ''
+                            }
 
+                            {
 
+                                preview?
                             <div className = "row">
                                 <h3 className="float-md-left">Preview</h3>
                             </div>
+                                    : ''
+                            }
+
                             <div className = "row">
 
                                 <div className = "float-md-left">

@@ -6,6 +6,8 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
             <div className="row rowpad" >
                 <div className="col-1"></div>
                 <div className="col-10 editor-border">
+                    {
+                        preview?
                     <div className="row">
                         <div className="col-8">
                             <h2>Paragraph Widget</h2>
@@ -42,8 +44,16 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
                             </div>
                         </div>
                     </div>
+                            : ''
+                    }
+
+
                     <div className="row">
                         <div className="col-12">
+
+                            {
+
+                            preview?
                             <div className="form-group">
                                 <textarea
                                     rows="4"
@@ -55,7 +65,11 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
                                     }}
                                 ></textarea>
                             </div>
+                                : ''
+                            }
 
+                            {
+                                preview?
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
@@ -63,11 +77,18 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidg
                                        aria-describedby="emailHelp"
                                        placeholder="Enter Widget Name" />
                             </div>
+                            : ''
+                            }
 
+                            {
+                                preview?
 
                             <div className = "row">
                                 <h5 className="float-md-left">Preview</h5>
                             </div>
+
+                                    : ''
+                            }
                             <div className = "row">
 
                                 <div className = "float-md-left">

@@ -1,11 +1,10 @@
 import React from 'react'
 import WidgetComponent from './WidgetComponent'
 
-const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
-                        loadWidgets, preview}) => {
+const WidgetList = ({widgets, preview, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
+                        loadWidgets}) => {
     loadWidgets();
     return (<div>
-        <h1>Widget List {widgets.length}</h1>
         <div className="list-group">
             {
                 widgets.map(widget =>
@@ -27,7 +26,6 @@ const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWi
                         onClick={() => addWidget()}
                         className="btn-success fa-2x fas fa-plus-circle"
                     >
-
                     </button>
                 </div>
             </div>

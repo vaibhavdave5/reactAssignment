@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import WidgetList from '../components/WidgetList'
 
 const stateToPropertyMapper = (state) =>({
-    widgets:state.widgets,
+    widgets : state.widgets,
     preview : state.preview,
     present : state.present
 });

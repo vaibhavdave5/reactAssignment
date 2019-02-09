@@ -3,9 +3,12 @@ import React from 'react'
 const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, preview}) =>
 
                 <div className="row rowpad" >
-                <div className="col-1"></div>
-                <div className="col-10 editor-border">
-                    <div className="row">
+                     <div className="col-1"></div>
+
+                    <div className="col-10 editor-border">
+                        {
+                            preview?
+                        <div className="row">
                         <div className="col-8">
                             <h2>Heading Widget</h2>
                         </div>
@@ -42,9 +45,14 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  : ''
+                        }
                     <div className="row">
                         <div className="col-12">
+
+                            {
+
+                                preview?
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
@@ -58,6 +66,13 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
 
                                 />
                             </div>
+
+                                    : ''
+                            }
+                            {
+
+                             preview?
+
                             <div className="form-group">
                                 <select className="custom-select"
                                         onChange={event => {
@@ -71,6 +86,13 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                                     <option value="5">Heading 5</option>
                                 </select>
                             </div>
+
+                                 : ''
+                            }
+
+                            {
+                                preview?
+
                             <div className="form-group">
                                 <input type="text"
                                        className="form-control"
@@ -79,9 +101,23 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                                        placeholder="Enter Widget Name" />
                             </div>
 
+                                    : ''
+                            }
+
                             <div className = "row">
-                            <h5 className="float-md-left">Preview</h5>
+
+                                {
+                                    preview?
+                                    <h5 className="float-md-left">Preview</h5>
+                                        : ''
+                                }
+
+
                             </div>
+
+
+
+
                             <div className = "row">
 
                                 <div className = "float-md-left">
@@ -99,6 +135,9 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget
                     </div>
 
                 </div>
+
+
+
             </div>
 
 

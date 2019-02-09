@@ -5,6 +5,9 @@ const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
     <div className="row rowpad" >
         <div className="col-1"></div>
         <div className="col-10 editor-border">
+            {
+                preview?
+
             <div className="row">
                 <div className="col-8">
                     <h2>List Widget</h2>
@@ -41,8 +44,15 @@ const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
                     </div>
                 </div>
             </div>
+
+            : ''
+            }
+
             <div className="row">
                 <div className="col-12">
+
+                    {
+                        preview?
                     <div className="form-group">
                                 <textarea rows="4"
                                           cols="100"
@@ -53,6 +63,11 @@ const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
                                           }}
                                 ></textarea>
                     </div>
+
+                    : ''
+                    }
+                    {
+                        preview?
                     <div className="form-group">
                         <select className="custom-select"
                                 onChange={(event) => {
@@ -63,6 +78,13 @@ const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
                             <option value="2">Unordered List</option>
                         </select>
                     </div>
+
+                    : ''
+                    }
+
+                    {
+
+                    preview?
                     <div className="form-group">
                         <input type="text"
                                className="form-control"
@@ -70,10 +92,18 @@ const ListWidget = ({widget, updateWidget, deleteWidget, upWidget, downWidget, p
                                aria-describedby="emailHelp"
                                placeholder="Enter Widget Name" />
                     </div>
+                        : ''
+                    }
 
+                    {
+
+                        preview?
                     <div className = "row">
                         <h3 className="float-md-left">Preview</h3>
                     </div>
+                            : ''
+                    }
+
                     <div className = "row">
 
                         <div className = "float-md-left">

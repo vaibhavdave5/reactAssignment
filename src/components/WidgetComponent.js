@@ -5,7 +5,7 @@ import ParagraphWidget from "./ParagraphWidget";
 import ListWidget from "./ListWidget";
 import LinkWidget from "./LinkWidget";
 
-const WidgetComponent = ({widget,preview, deleteWidget, updateWidget, upWidget, downWidget}) =>
+const WidgetComponent = ({widget , preview, deleteWidget, updateWidget, upWidget, downWidget}) =>
     <div>
         {
             widget.type=='HEADING' &&

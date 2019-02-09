@@ -20,7 +20,6 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
 
             };
         case 'TOGGLE':
-            alert("Here we are");
             var preview = !state.preview;
             var widgets = state.widgets
             return{
