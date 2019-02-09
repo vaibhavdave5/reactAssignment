@@ -64,9 +64,17 @@ class CourseEditor extends React.Component {
     }
 
     selectTopic = selectedtopic =>{
+
+
+        store.dispatch({
+            type: 'FIND_ALL_WIDGETS_FOR_TOPIC',
+            topic: this.state.topic
+        })
+
         this.setState({
             topic: selectedtopic
         })
+
     }
 
     editTopic = topic =>{

@@ -13,7 +13,8 @@
               "topics": [
                 {
                   "id": 1,
-                  "title": "Topic 1"
+                  "title": "Topic 1",
+                  "widgets": []
                 }
               ]
             },
@@ -23,7 +24,8 @@
               "topics": [
                 {
                   "id": 1,
-                  "title": "Topic 2"
+                  "title": "Topic 2",
+                  "widgets": []
                 }
               ]
             }
@@ -697,6 +699,6 @@
   }
 
 
-    
+
 
   ]

@@ -164,12 +164,13 @@ const widgetReducer = (state = widgets, action) => {
 
         case  'FIND_ALL_WIDGETS_FOR_TOPIC':{
             var temparr= []
-            for(var i=0 ; i < state.widgets.length; i++){
-                if(state.widgets[i].topicId === action.id){
-                    temparr.push(state.widgets[i])
-                }
-            }
-            return {widgets: temparr}
+            console.log("chane");
+            // for(var i=0 ; i < state.widgets.length; i++){
+            //     if(state.widgets[i].topicId === action.id){
+            //         temparr.push(state.widgets[i])
+            //     }
+            // }
+            return {widgets : action.topic.widgets}
         }
 
         case 'FIND_ALL_WIDGETS':{
