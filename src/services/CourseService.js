@@ -100,7 +100,6 @@ class CourseService {
               return topics[l].widgets;
             }
           }
-
         }
       }
     }
@@ -199,7 +198,7 @@ class CourseService {
    * @param widgetId
    * @returns {Array|*}
    */
-  upPosition = (widgetId) => {
+  upWidget = (widgetId) => {
     for(var i=0; i<this.courses.length; i++){
       var modules = this.courses[i].modules;
 
@@ -258,7 +257,7 @@ class CourseService {
    * @returns {Array|*}
    */
 
-  downPosition = (widgetId) => {
+  downWidget = (widgetId) => {
     for(var i=0; i<this.courses.length; i++){
       var modules = this.courses[i].modules;
 

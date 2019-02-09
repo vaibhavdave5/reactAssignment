@@ -39,7 +39,7 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
                 present:false
             };
         case 'DOWN_POSITION':
-            state.widgets = courseService.downPosition(action.widget.id);
+            state.widgets = courseService.downWidget(action.widget.id);
             return{
                 widgets: state.widgets,
                 preview: state.preview,
@@ -54,7 +54,7 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
                 present: false
             };
         case 'UP_POSTION':
-            state.widgets =courseService.upPosition(action.widget.id);
+            state.widgets =courseService.upWidget(action.widget.id);
             return{
                 widgets: state.widgets,
                 preview: state.preview,

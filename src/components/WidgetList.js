@@ -2,8 +2,9 @@ import React from 'react'
 import WidgetComponent from './WidgetComponent'
 
 const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
-                        findAllWidgetsForTopic}) =>
-    <div>
+                        loadWidgets}) => {
+    loadWidgets();
+    return (<div>
         <h1>Widget List {widgets.length}</h1>
         <div className="list-group">
             {
@@ -21,15 +22,15 @@ const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWi
             <div className="row">
                 <div className="col-10"></div>
                 <div className="col-2 float-right">
-            <button
-                onClick={() => addWidget()}
-                className="btn-success fa-2x fas fa-plus-circle"
-            >
+                    <button
+                        onClick={() => addWidget()}
+                        className="btn-success fa-2x fas fa-plus-circle"
+                    >
 
-            </button>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
-
+    </div>)
+}
 export default WidgetList

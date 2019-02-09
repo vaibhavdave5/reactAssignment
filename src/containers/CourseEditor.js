@@ -71,9 +71,7 @@ class CourseEditor extends React.Component {
         })
         this.setState({
             widgets: selectedtopic.widgets,
-
         })
-
     }
 
     editTopic = topic =>{

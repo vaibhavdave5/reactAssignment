@@ -34,13 +34,13 @@ const dispatchToPropertyMatcher = (dispatch, myProps) => ({
 
         }),
 
-    changePositionDown : (widget) =>
+    downWidget : (widget) =>
         dispatch({
             type:'DOWN_POSITION',
             widget : widget
         }),
 
-    changePositionUp : (widget) =>
+    upWidget : (widget) =>
         dispatch({
             type:'UP_POSITION',
             widget : widget

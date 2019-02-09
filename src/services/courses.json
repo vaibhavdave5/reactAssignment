@@ -22,6 +22,18 @@
                     "text": "Hi"
                   }
                 ]
+              },
+              {
+                "id": 55123,
+                "title": "Topic 2",
+                "widgets": [
+                  {
+                    "id" : "56123",
+                    "name" : "Paragraph",
+                    "type": "PARAGRAPH",
+                    "text": "Hello"
+                  }
+                ]
               }
             ]
           }
