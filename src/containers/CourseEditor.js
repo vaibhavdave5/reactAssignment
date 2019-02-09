@@ -409,11 +409,7 @@ class CourseEditor extends React.Component {
                                             }
                                         }
                                         >Preview</button>
-                                <button type="button"
-                                        className="btn btn-warning"
-                                        data-toggle="button"
-                                        aria-pressed="false"
-                                        autocomplete="off">Add Widget</button>
+                                
                             </div>
                         </div>
                         <br />
