@@ -231,7 +231,7 @@ class CourseService {
                       widgets[i].hidedown = ""
                     }
 
-                    else if(i===(state.widgets.length-1)){
+                    else if(i===(widgets.length-1)){
                       widgets[i].hidedown = "disabled"
                       widgets[i].hideup = ""
                     }
@@ -290,7 +290,7 @@ class CourseService {
                       widgets[i].hidedown = ""
                     }
 
-                    else if(i===(state.widgets.length-1)){
+                    else if(i===(widgets.length-1)){
                       widgets[i].hidedown = "disabled"
                       widgets[i].hideup = ""
                     }
