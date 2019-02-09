@@ -26,7 +26,8 @@ class CourseEditor extends React.Component {
             module: course.modules[0],
             lesson: course.modules[0].lessons[0],
             topic: course.modules[0].lessons[0].topics[0],
-            newModuleName: ""
+            newModuleName: "",
+            widgets: course.modules[0].lessons[0].topics[0].widgets
         }
     }
     selectModule = module =>{
@@ -64,15 +65,13 @@ class CourseEditor extends React.Component {
     }
 
     selectTopic = selectedtopic =>{
-
-
-        store.dispatch({
-            type: 'FIND_ALL_WIDGETS_FOR_TOPIC',
-            topic: this.state.topic
-        })
-
         this.setState({
-            topic: selectedtopic
+            topic: selectedtopic,
+
+        })
+        this.setState({
+            widgets: selectedtopic.widgets,
+
         })
 
     }
@@ -103,6 +102,7 @@ class CourseEditor extends React.Component {
         var newTopic = {
             "id": new Date().getTime(),
             "title": "New Topic",
+            "widgets" :[]
         }
         var newLesson = this.state.lesson;
 
@@ -414,7 +414,8 @@ class CourseEditor extends React.Component {
                         {/*<WidgetList/>*/}
 
                         <Provider store={store}>
-                            <WidgetListContainer id={this.state.topic.id} />
+                            <WidgetListContainer widgets={this.state.widgets}
+                                                 topic={this.state.topic}/>
                         </Provider>
 
                     </div>

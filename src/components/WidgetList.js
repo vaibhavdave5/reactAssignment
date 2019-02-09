@@ -22,7 +22,7 @@ const WidgetList = ({widgets, topic, addWidget, deleteWidget, updateWidget, upWi
                 <div className="col-10"></div>
                 <div className="col-2 float-right">
             <button
-                onClick={addWidget}
+                onClick={() => addWidget()}
                 className="btn-success fa-2x fas fa-plus-circle"
             >
 

@@ -2,64 +2,74 @@ import React from 'react'
 import {connect} from 'react-redux'
 import WidgetList from '../components/WidgetList'
 
-const stateToPropertyMapper = state => ({
-    widgets: state.widgets
-})
+const stateToPropertyMapper = (state) =>({
+    widgets:state.widgets,
+    preview : state.preview,
+    present : state.present
+});
 
-const dispatchToPropertyMapper = (dispatch , myprops) => ({
-    deleteWidget: widget =>
+
+
+const dispatchToPropertyMatcher = (dispatch, myProps) => ({
+    updateWidget : widget =>
         dispatch({
-            type: 'DELETE_WIDGET',
-            widget: widget,
-            topic: myprops.id
+            type:'UPDATE_WIDGET',
+            widget : widget,
         }),
-    addWidget: () =>
+    togglePreview: () =>
+        dispatch({
+            type : 'TOGGLE_PREVIEW',
+        }),
+
+    deleteWidget: (widget) =>
+        dispatch({
+            type:'DELETE_WIDGET',
+            widget : widget
+        }),
+
+    addWidget : () =>
         dispatch({
             type: 'ADD_WIDGET',
-            topic: myprops.id
-        }),
-    updateWidget: widget =>
-        dispatch({
-            type: 'UPDATE_WIDGET',
-            widget: widget,
-            topic: myprops.id
-        }),
-    upWidget: widget => {
-        dispatch({
-            type: 'UP_WIDGET',
-            widget: widget,
-            topic: myprops.id
-        })
-        dispatch({
-            type: 'UPDATE_WIDGET',
-            widget: widget,
-            topic: myprops.id
-        })
-    },
-    downWidget: widget => {
-        dispatch({
-            type: 'DOWN_WIDGET',
-            widget: widget,
-            topic: myprops.id
-        })
-        dispatch({
-            type: 'UPDATE_WIDGET',
-            widget: widget,
-            topic: myprops.id
-        })
-    },
-    findAllWidgetsForTopic: () =>{
-        dispatch({
-            type: 'FIND_ALL_WIDGETS_FOR_TOPIC',
-            topic: myprops.id
-        })
-    }
+            topicId : myProps.topic.id
 
-})
+        }),
 
-const WidgetListContainer = connect(
-    stateToPropertyMapper,
-    dispatchToPropertyMapper
-)(WidgetList)
+    changePositionDown : (widget) =>
+        dispatch({
+            type:'DOWN_POSITION',
+            widget : widget
+        }),
+
+    changePositionUp : (widget) =>
+        dispatch({
+            type:'UP_POSITION',
+            widget : widget
+        }),
+
+    findWidget : (widget) =>
+        dispatch({
+            type: 'FIND_WIDGET',
+            widget : widget
+        }),
+
+    loadWidgets : (widget) =>
+        dispatch({
+            type:'FIND_ALL_WIDGETS_FOR_TOPIC',
+            widget : widget,
+            topicId: myProps.topic.id
+
+        }),
+
+    findAllWidgets : (widget) =>
+        dispatch({
+            type:'FIND_ALL_WIDGETS',
+        })
+
+
+});
+
+const WidgetListContainer =
+    connect(stateToPropertyMapper,
+            dispatchToPropertyMatcher)(WidgetList)
 
 export default WidgetListContainer
