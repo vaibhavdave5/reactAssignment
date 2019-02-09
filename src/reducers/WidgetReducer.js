@@ -29,6 +29,7 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
             };
         case 'ADD_WIDGET':
             state.widgets = courseService.createWidget(action.topicId, {
+                id: new Date().getTime(),
                 type: 'HEADING',
                 text: 'New Widget',
                 size: 1
@@ -53,7 +54,7 @@ const widgetReducer = (state = {widgets:[], preview: true, present:true}, action
                 preview: state.preview,
                 present: false
             };
-        case 'UP_POSTION':
+        case 'UP_POSITION':
             state.widgets =courseService.upWidget(action.widget.id);
             return{
                 widgets: state.widgets,

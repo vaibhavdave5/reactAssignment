@@ -68,7 +68,7 @@ class CourseService {
           for(var l=0; l<topics.length; l++){
             if(topics[l].id === topicId){
               topics[l].widgets.push(widget);
-              return topics[l].widgets;
+              return this.sanitize(topics[l].widgets);
             }
           }
 
@@ -105,9 +105,9 @@ class CourseService {
                 }
 
               }
-              topics[l].widgets[0].top = true;
-              topics[l].widgets[topics[l].widgets.length-1].down = true;
-              return topics[l].widgets;
+              topics[l].widgets[0].hideup = "disabled";
+              topics[l].widgets[topics[l].widgets.length-1].hidedown = "disabled";
+              return this.sanitize(topics[l].widgets);
             }
           }
         }
@@ -156,7 +156,7 @@ class CourseService {
               if(widgets[m].id===widgetId){
                 widgets = widgets.map(widget =>
                     widget.id === widgetId ? newwidget : widget)
-                return widgets;
+                return this.sanitize(widgets);
               }
             }
           }
@@ -193,7 +193,7 @@ class CourseService {
               if(widgets[m].id === widgetId){
                 widgets.splice(m, 1);
 
-                return widgets;
+                return this.sanitize(widgets);
               }
             }
           }
@@ -229,29 +229,7 @@ class CourseService {
                 widgets[index] = widgets[up_index]
                 widgets[up_index] = temp
 
-                for(var p=0 ; p < widgets.length; p++){
-                  if(widgets.length === 1){
-                    widgets[i].hidedown ="disabled"
-                    widgets[i].hideup ="disabled"
-                  }
-                  else{
-                    if(i===0){
-                      widgets[i].hideup = "disabled"
-                      widgets[i].hidedown = ""
-                    }
-
-                    else if(i===(widgets.length-1)){
-                      widgets[i].hidedown = "disabled"
-                      widgets[i].hideup = ""
-                    }
-
-                    else{
-                      widgets[i].hidedown = ""
-                      widgets[i].hideup = ""
-                    }
-                  }
-                }
-                return widgets;
+                return this.sanitize(widgets);
               }
             }
           }
@@ -288,36 +266,39 @@ class CourseService {
                 widgets[index] = widgets[up_index]
                 widgets[up_index] = temp
 
-                for(var p=0 ; p < widgets.length; p++){
-                  if(widgets.length === 1){
-                    widgets[i].hidedown ="disabled"
-                    widgets[i].hideup ="disabled"
-                  }
-                  else{
-                    if(i===0){
-                      widgets[i].hideup = "disabled"
-                      widgets[i].hidedown = ""
-                    }
-
-                    else if(i===(widgets.length-1)){
-                      widgets[i].hidedown = "disabled"
-                      widgets[i].hideup = ""
-                    }
-
-                    else{
-                      widgets[i].hidedown = ""
-                      widgets[i].hideup = ""
-                    }
-                  }
-                }
-                return widgets;
+                return this.sanitize(widgets);
               }
             }
           }
-
         }
       }
     }
+  }
+
+  sanitize = widgets => {
+    for(var i=0 ; i < widgets.length; i++){
+      if(widgets[i] === undefined){
+        return widgets
+      }
+
+      if(widgets.length === 1){
+        widgets[i].hideup = "disabled"
+        widgets[i].hidedown = "disabled"
+      }
+      else if(i === 0){
+        widgets[i].hideup = "disabled"
+        widgets[i].hidedown = ""
+      }
+      else if(i === widgets.length-1 ){
+        widgets[i].hideup = ""
+        widgets[i].hidedown = "disabled"
+      }
+      else{
+        widgets[i].hideup = ""
+        widgets[i].hidedown = ""
+      }
+    }
+    return widgets
   }
 
 }

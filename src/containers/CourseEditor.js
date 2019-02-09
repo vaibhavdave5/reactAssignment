@@ -395,7 +395,10 @@ class CourseEditor extends React.Component {
                                 <button type="button"
                                         className="btn btn-success"
                                         data-toggle="button"
-                                        autocomplete="off">Save</button>
+                                        autocomplete="off"
+                                        onClick={
+                                            ()=>{alert("Saved")}
+                                        }>Save</button>
                                 <button type="button"
                                         className="btn btn-primary"
                                         data-toggle="button"
