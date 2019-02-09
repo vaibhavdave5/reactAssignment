@@ -95,6 +95,16 @@ class CourseService {
 
           for(var l=0; l<topics.length; l++){
             if(topics[l].id === topicId){
+              if(topics[l].widgets[0] === undefined){
+                topics[l].widgets[0] =
+                {
+                  "id" : new Date().getTime(),
+                    "name" : "Paragraph",
+                    "type": "PARAGRAPH",
+                    "text": "Hello"
+                }
+
+              }
               topics[l].widgets[0].top = true;
               topics[l].widgets[topics[l].widgets.length-1].down = true;
               return topics[l].widgets;
