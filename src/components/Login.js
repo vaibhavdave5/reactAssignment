@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 
 const Login = ({doLogin}) =>
 <div>
@@ -19,5 +19,8 @@ const Login = ({doLogin}) =>
             document.getElementById("email"),
             document.getElementById("password"))}>Submit</button>
     </form>
+
+    <Link to={`/register`}>
+    <h5 className="card-title">Register</h5></Link>
 </div>
 export default Login;
