@@ -1,20 +1,9 @@
-import courses from './courses.json'
 
 class CourseService {
-  constructor() {
-    this.courses = courses;
-    this.tempcourse = courses;
-  }
+  constructor() {}
 
   createCourse = course => {
-    if(course === null) {
-      course = {
-        id: (new Date()).getTime(),
-        title: 'New Course'
-      }
-    }
-    this.courses.push(course)
-    return this.courses
+    
   }
 
   findCourseById = courseId =>{
