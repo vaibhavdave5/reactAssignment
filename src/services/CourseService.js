@@ -3,33 +3,117 @@ class CourseService {
   constructor() {}
 
   createCourse = course => {
-    
+    var data = JSON.stringify({
+      "id": new Date().getTime(),
+      "sections": [],
+      "modules": [],
+      "title":"New Course"
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        return JSON.parse(this.responseText);
+      }
+    });
+
+    xhr.open("POST", "http://localhost:8080/api/courses");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("credentials", "include");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "c1bf79bd-411e-4ad3-a711-ae7687631323");
+
+    xhr.send(data);
   }
 
   findCourseById = courseId =>{
-    this.courses = this.courses.find(
-        course => course.id === courseId
-    )
-    return this.courses
+    var data = JSON.stringify(false);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        return JSON.parse(this.responseText);
+      }
+    });
+
+    xhr.open("GET", "http://localhost:8080/api/courses/"+courseId);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("credentials", "include");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "d472633e-01ff-45b7-a945-097d0dbbc7f0");
+
+    xhr.send(data);
   }
 
   findAllCourses = () =>{
-    return this.courses;
+    var data = JSON.stringify(false);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        return JSON.parse(this.responseText);
+      }
+    });
+
+    xhr.open("GET", "http://localhost:8080/api/courses/");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("credentials", "include");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "938e89eb-7b04-47d8-b92c-8b97ba0d6f3f");
+
+    xhr.send(data);
   }
 
-  deleteCourse = deleteCourse =>
-      this.courses = this.courses.filter(
-          course => course.id !== deleteCourse.id
-      )
+  deleteCourse = deleteCourse =>{
+    var data = JSON.stringify(false);
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
+      }
+    });
+
+    xhr.open("DELETE", "http://localhost:8080/api/courses/"+deleteCourse.id);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("credentials", "include");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "1319a8cc-2efb-4890-b532-95c4291003e0");
+
+    xhr.send(data);
+  }
 
   updateCourse = (id, course) => {
-    this.courses = this.tempcourse;
-    console.log(this.courses.length);
-    for (var i = 0; i < this.courses.length; i++) {
-      if(id === this.courses[i].id){
-        this.courses[i] = course;
+    var data = JSON.stringify({
+      "id": course.id,
+      "sections": course.sections,
+      "modules": course.modules
+    });
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log(this.responseText);
       }
-    }
+    });
+
+    xhr.open("PUT", "http://localhost:8080/api/courses/"+id);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("credentials", "include");
+    xhr.setRequestHeader("cache-control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "23ffd04d-47c9-45ae-981e-20c4523fcb06");
+
+    xhr.send(data);
   }
 
   /**
