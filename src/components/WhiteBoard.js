@@ -13,17 +13,31 @@ class WhiteBoard extends Component {
     this.courseService = new CourseService()
       this.userService = new UserService()
     this.state = {
-      courses: this.courseService.findAllCourses(),
-        loggedIn:"no"
+        loggedIn:"no",
+        showbutton: "no"
     }
+  }
+  changeRouteState = () =>{
+      this.courseService.findAllCourses().then(this.helpCRS)
+  }
+
+  helpCRS = (courses) =>{
+      this.setState({
+          courses:courses,
+          loggedIn:"yes"
+      })
   }
   deleteCourse = course =>
     this.setState({
       courses: this.courseService.deleteCourse(course)
     })
+
     login = (username, password) =>
     {
         this.userService.login(username,password)
+        this.setState({
+            showbutton:"yes"
+        })
     }
 
     register = (username, password) => {
@@ -57,8 +71,6 @@ class WhiteBoard extends Component {
   }
   render() {
     return (
-       
-
 this.state.loggedIn === "no" &&
 <Router>
     <div>
@@ -68,7 +80,8 @@ this.state.loggedIn === "no" &&
         <Route path='/register' exact
                render={() =>
                    <Register doRegister={this.register} />}/>
-
+        { this.state.showbutton === "yes" &&
+        <button id="changeState" onClick={this.changeRouteState}>View Courses</button> }
     </div>
 </Router>
 ||
@@ -89,9 +102,10 @@ this.state.loggedIn === "no" &&
                    addCourse={this.addCourse}
                    deleteCourse={this.deleteCourse}
                />}/>
+
+
     </div>
 </Router>
-
 
     )
   }
