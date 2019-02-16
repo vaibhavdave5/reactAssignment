@@ -46,7 +46,8 @@ class CourseService {
 
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-          resolve (JSON.parse(this.responseText));
+          console.log(this.responseText)
+          resolve(JSON.parse(this.responseText));
         }
       });
 

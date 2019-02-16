@@ -3,6 +3,10 @@ import ModuleList from "../components/ModuleList";
 import LessonTabs from "../components/LessonTabs";
 import TopicPills from "../components/TopicPills";
 import CourseService from "../services/CourseService"
+import ModuleService from "../services/ModuleService"
+import LessonService from "../services/LessonService"
+import TopicService from "../services/TopicService"
+import UserService from "../services/UserService"
 import WidgetListContainer from '../containers/WidgetListContainer'
 import widgetReducer from '../reducers/WidgetReducer'
 import {createStore} from 'redux'
@@ -16,9 +20,17 @@ const store = createStore(widgetReducer);
 class CourseEditor extends React.Component {
     constructor(props) {
         super(props)
+
         this.courseService = new CourseService()
+        this.userService = new UserService()
+        this.topicService = new TopicService();
+        this.moduleService = new ModuleService();
+        this.lessonService = new LessonService();
+
         const courseId = parseInt(props.match.params.id)
         this.state = {
+            id:0,
+            id2:0,
             course: courses[0],
             title: courses[0].title,
             module: courses[0].modules[0],
@@ -28,8 +40,10 @@ class CourseEditor extends React.Component {
             widgets: courses[0].modules[0].lessons[0].topics[0].widgets,
             lessons:courses[0].modules[0].lessons
         }
+
         this.courseService.findCourseById(courseId)
             .then( (course) => {
+                    console.log(course)
                     this.setState({
                         course: course,
                         title: course.title,
@@ -39,17 +53,58 @@ class CourseEditor extends React.Component {
                         topic: course.modules[0].lessons[0].topics[0],
                         newModuleName: "",
                     });
-                console.log(this.state.course);
                 }
             )
     }
+
+
+    update =()=>{
+        console.log("yyyyyyy")
+        const courseId = parseInt(this.props.match.params.id)
+        this.courseService.findCourseById(courseId)
+            .then( (course) => {
+                    console.log(course)
+                    if(this.state.id > (course.modules.length-1)){
+                        this.setState({
+                            id:0
+                        })
+                    }
+
+                if(this.state.id2 > (course.modules[this.state.id].lessons.length-1)){
+                    this.setState({
+                        id2:0
+                    })
+                }
+                    this.setState({
+                        course: course,
+                        title: course.title,
+                        module: course.modules[this.state.id],
+                        lessons:course.modules[this.state.id].lessons,
+                        lesson: course.modules[this.state.id].lessons[this.state.id2],
+                        topic: course.modules[this.state.id].lessons[this.state.id2].topics[0],
+                        newModuleName: "",
+                    });
+                }
+            )
+    }
+
+
+
     selectModule = module =>{
-        this.setState({
-            module: module
-        })
-        this.setState({
-            lesson: module.lessons[0]
-        })
+        var id = module.id
+        var modules = this.state.course.modules;
+        for(var i=0 ; i < modules.length; i++){
+            if(id === modules[i].id){
+                this.setState({
+                    id: i,
+                    module: modules[i],
+                    lesson: modules[i].lessons[0],
+                    topic: modules[i].lessons[0].topics[0],
+                    widgets: modules[i].lessons[0].topics[0].widgets,
+                    lessons:modules[i].lessons
+                })
+            }
+        }
     }
 
     selectTopicTheme = topic =>{
@@ -60,9 +115,16 @@ class CourseEditor extends React.Component {
     }
 
     selectLesson = lesson =>{
-        this.setState({
-            lesson: lesson
-        })
+        var id = lesson.id
+        var lessons = this.state.course.modules[this.state.id].lessons;
+        for(var i=0 ; i < lessons.length; i++){
+            if(id === lessons[i].id){
+                this.setState({
+                    id2: i
+                })
+            }
+        }
+        this.update()
     }
 
     deleteTopic = deletetopic =>{
@@ -117,17 +179,7 @@ class CourseEditor extends React.Component {
     }
 
     addTopic = () => {
-        var newTopic = {
-            "id": new Date().getTime(),
-            "title": "New Topic",
-            "widgets" :[]
-        }
-        var newLesson = this.state.lesson;
-
-        newLesson.topics.push(newTopic);
-        this.setState({
-            lesson: newLesson
-        });
+        this.topicService.createTopic(this.state.lesson.id, {}).then(this.update)
     }
 
     lessonActive = lesson =>{
@@ -140,19 +192,10 @@ class CourseEditor extends React.Component {
     }
 
     deleteModule = deleteModule => {
-        if(this.state.course.modules.length === 1){
-            alert("You cannot delete the last Module");
-        }
-        else {
-            var modules = this.state.course.modules.filter(
-                module => module.id !== deleteModule.id
-            )
-            var newCourse = this.state.course;
-            newCourse.modules = modules;
-            this.setState({
-                course: newCourse
-            })
-        }
+        var that = this
+        this.moduleService.deleteModule(deleteModule.id)
+            .then(this.update)
+
     }
 
 
@@ -161,50 +204,16 @@ class CourseEditor extends React.Component {
             alert("You cannot delete the last Lesson");
         }
         else {
-            var lessons = this.state.module.lessons.filter(
-                lesson => lesson.id !== deleteLesson.id
-            )
-            var newCourse = this.state.course;
-            var newModules = this.state.course.modules;
-
-            for (var i = 0; i < newModules.length; i++) {
-                if(this.state.module.id === newModules[i].id){
-                    newModules[i].lessons = lessons;
-                    this.setState({
-                        module: newModules[i]
-                    })
-                }
-            }
-            newCourse.modules = newModules;
-
-            this.setState({
-                course: newCourse
-            })
+            this.lessonService.deleteLesson(deleteLesson.id)
+                .then(this.update)
         }
     }
 
     addModule = btn => {
-        var newModule = {
-            "id": new Date().getTime(),
-            "title": this.state.newModuleName,
-            "lessons": [
-                {
-                    "id": new Date().getTime(),
-                    "title": "Lesson 1",
-                    "topics": [
-                        {
-                            "id": new Date().getTime(),
-                            "title": "Topic 1"
-                        }
-                    ]
-                }]
-        }
-        var newCourse = this.state.course;
-        this.state.course.modules.push(newModule);
-        this.setState({
-            course: newCourse
-        });
-        this.courseService.updateCourse(this.state.course.id, this.state.course);
+
+        this.moduleService.createModule(this.state.course.id)
+            .then(this.update)
+
     }
 
     changeModuleName = btn => {
@@ -280,22 +289,8 @@ class CourseEditor extends React.Component {
         if (name == null || name == "") {
             alert("User cancelled the prompt.");
         } else {
-            txt =  name ;
-            var lessons = this.state.module.lessons;
-            var newLesson = {
-                "id": new Date().getTime(),
-                "title": txt,
-                "topics":[{
-                    "id": 1,
-                    "title": "Topic 4"
-                }]
-            }
-            var newCourse = this.state.course;
-            this.state.module.lessons.push(newLesson);
-            this.setState({
-                course: newCourse
-            });
-            this.courseService.updateCourse(this.state.course.id, this.state.course);
+            this.lessonService.createLesson(this.state.module.id,{})
+                .then(this.update)
         }
     }
 
@@ -431,7 +426,7 @@ class CourseEditor extends React.Component {
                                                 })
                                             }
                                         }
-                                        >Preview</button>
+                                >Preview</button>
 
                             </div>
                         </div>
