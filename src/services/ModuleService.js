@@ -39,7 +39,6 @@ class ModuleService {
                     resolve(JSON.parse(this.responseText));
                 }
             });
-            console.log(cid)
             xhr.open("POST", "http://localhost:8080/api/courses/" + cid + "/modules");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
@@ -79,7 +78,8 @@ class ModuleService {
         const promise = new Promise((resolve, reject) => {
             var data = JSON.stringify({
                 "id": module.id,
-                "chapters": module.lessons
+                lessons: module.lessons,
+                "title":module.title
             });
 
             var xhr = new XMLHttpRequest();
@@ -90,7 +90,6 @@ class ModuleService {
                     resolve(JSON.parse(this.responseText));
                 }
             });
-
             xhr.open("PUT", "http://localhost:8080/api/modules/" + mid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
@@ -99,6 +98,7 @@ class ModuleService {
 
             xhr.send(data);
         })
+        return promise
     }
 
     deleteModule = mid => {

@@ -82,10 +82,7 @@ class LessonService {
 
     updateLesson = (lid, lesson) => {
         const promise = new Promise((resolve, reject) => {
-            var data = JSON.stringify({
-                "id": lesson.id,
-                "topics": lesson.topics
-            });
+            var data = JSON.stringify(lesson);
 
             var xhr = new XMLHttpRequest();
             xhr.withCredentials = true;

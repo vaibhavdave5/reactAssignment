@@ -80,10 +80,7 @@ class TopicService {
         updateTopic = (tid, topic) => {
             const promise = new Promise((resolve, reject) => {
 
-                var data = JSON.stringify({
-                    "id": topic.id,
-                    "widgetList": topic.widgetList
-                });
+                var data = JSON.stringify(topic);
 
                 var xhr = new XMLHttpRequest();
                 xhr.withCredentials = true;
@@ -93,8 +90,9 @@ class TopicService {
                         return (JSON.parse(this.responseText));
                     }
                 });
-
-                xhr.open("PUT", "http://localhost:8080/api/topic/" + tid);
+                console.log(tid)
+                console.log(JSON.stringify(topic))
+                xhr.open("PUT", "http://localhost:8080/api/topic/"+tid);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.setRequestHeader("credentials", "include");
                 xhr.setRequestHeader("cache-control", "no-cache");

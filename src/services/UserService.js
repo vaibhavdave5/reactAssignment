@@ -19,7 +19,6 @@ class UserService {
 
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-                    console.log(this.responseText)
                    resolve(this.responseText)
                 }
             });
@@ -50,7 +49,6 @@ class UserService {
 
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-                console.log(this.responseText);
             }
         });
 

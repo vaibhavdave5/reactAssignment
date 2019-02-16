@@ -43,7 +43,7 @@ class CourseEditor extends React.Component {
 
         this.courseService.findCourseById(courseId)
             .then( (course) => {
-                    console.log(course)
+     
                     this.setState({
                         course: course,
                         title: course.title,
@@ -59,22 +59,21 @@ class CourseEditor extends React.Component {
 
 
     update =()=>{
-        console.log("yyyyyyy")
         const courseId = parseInt(this.props.match.params.id)
         this.courseService.findCourseById(courseId)
             .then( (course) => {
-                    console.log(course)
-                    if(this.state.id > (course.modules.length-1)){
+                console.log(course)
+                if(this.state.id > (course.modules.length-1)){
                         this.setState({
                             id:0
                         })
                     }
 
-                if(this.state.id2 > (course.modules[this.state.id].lessons.length-1)){
-                    this.setState({
-                        id2:0
-                    })
-                }
+                    if(this.state.id2 > (course.modules[this.state.id].lessons.length-1)){
+                        this.setState({
+                            id2:0
+                        })
+                    }
                     this.setState({
                         course: course,
                         title: course.title,
@@ -167,13 +166,10 @@ class CourseEditor extends React.Component {
             for (var i = 0; i < newTopic.length; i++) {
                 if(topic.id === newTopic[i].id){
                     newTopic[i].title = txt;
+                    this.topicService.updateTopic(newTopic[i].id, newTopic[i])
+                        .then(this.update)
                 }
             }
-            var newLesson = this.state.lesson;
-            newLesson.topics = newTopic;
-            this.setState({
-                lesson: newLesson
-            })
         }
 
     }
@@ -233,26 +229,11 @@ class CourseEditor extends React.Component {
             for (var i = 0; i < lessons.length; i++) {
                 if(lesson.id === lessons[i].id){
                     lessons[i].title = txt;
-                    console.log("Executed");
+                    this.lessonService.updateLesson(lesson.id, lessons[i])
+                        .then(this.update)
                 }
             }
 
-            var newCourse = this.state.course;
-            var newModules = this.state.course.modules;
-
-            for (var i = 0; i < newModules.length; i++) {
-                if(this.state.module.id === newModules[i].id){
-                    newModules[i].lesson = lessons;
-                    this.setState({
-                        module: newModules[i]
-                    })
-                }
-            }
-            newCourse.modules = newModules;
-
-            this.setState({
-                course: newCourse
-            })
         }
     }
 
@@ -267,18 +248,14 @@ class CourseEditor extends React.Component {
             var modules = this.state.course.modules;
 
             for (var i = 0; i < modules.length; i++) {
+                console.log(JSON.stringify(modules[i]))
                 if(module.id === modules[i].id){
                     modules[i].title = txt;
-                    console.log("Executed");
+                    console.log(JSON.stringify(modules[i]))
+                    this.moduleService.updateModule(module.id, modules[i])
+                        .then(this.update)
                 }
             }
-
-            var newCourse = this.state.course;
-            newCourse.modules = modules;
-            this.setState(
-                {
-                    course: newCourse
-                });
         }
     }
 
