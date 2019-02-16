@@ -3,6 +3,7 @@ class CourseService {
   constructor() {}
 
   createCourse = course => {
+    const promise = new Promise((resolve, reject) =>{
     var data = JSON.stringify({
       "id": new Date().getTime(),
       "sections": [],
@@ -15,7 +16,8 @@ class CourseService {
 
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
-        return JSON.parse(this.responseText);
+        console.log(this.responseText)
+        resolve(JSON.parse(this.responseText));
       }
     });
 
@@ -27,6 +29,8 @@ class CourseService {
     xhr.setRequestHeader("Postman-Token", "c1bf79bd-411e-4ad3-a711-ae7687631323");
 
     xhr.send(data);
+    })
+    return promise;
   }
 
   findCourseById = courseId =>{

@@ -45,30 +45,16 @@ class WhiteBoard extends Component {
     }
 
   addCourse = (name) => {
-      var course = {
-          id: new Date().getTime(),
-          title: name,
-          "modules": [
-              {
-                  "id": new Date().getTime(),
-                  "title": "jQuery",
-                  "lessons": [
-                      {
-                          "id": new Date().getTime(),
-                          "title": "Lesson 1",
-                          "topics": [
-                              {
-                                  "id": new Date().getTime(),
-                                  "title": "Topic 1"
-                              }
-                          ]
-                      }]
-
-          }]}
+      this.courseService.createCourse()
+          .then(this.courseService.findAllCourses)
+          .then(this.helpAddCourse)
+  }
+  helpAddCourse = (courses) => {
       this.setState({
-          courses: this.courseService.createCourse(course)
+          courses: courses
       })
   }
+
   render() {
     return (
 this.state.loggedIn === "no" &&
