@@ -28,9 +28,12 @@ class WhiteBoard extends Component {
       })
   }
   deleteCourse = course =>
-    this.setState({
-      courses: this.courseService.deleteCourse(course)
-    })
+  {
+      this.courseService.deleteCourse(course)
+          .then(this.courseService.findAllCourses)
+          .then(this.helpAddCourse)
+  }
+
 
     login = (username, password) =>
     {

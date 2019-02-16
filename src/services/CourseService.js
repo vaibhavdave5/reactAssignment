@@ -1,6 +1,10 @@
+import courses from './courses.json'
 
 class CourseService {
-  constructor() {}
+  constructor() {
+    this.courses = courses;
+    this.tempcourse = courses;
+  }
 
   createCourse = course => {
     const promise = new Promise((resolve, reject) =>{
@@ -34,25 +38,29 @@ class CourseService {
   }
 
   findCourseById = courseId =>{
-    var data = JSON.stringify(false);
+    const promise = new Promise((resolve, reject) => {
+      var data = JSON.stringify(false);
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
 
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        return JSON.parse(this.responseText);
-      }
-    });
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          resolve (JSON.parse(this.responseText));
+        }
+      });
 
-    xhr.open("GET", "http://localhost:8080/api/courses/"+courseId);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("credentials", "include");
-    xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader( 'Access-Control-Allow-Credentials', 'true');
-    xhr.setRequestHeader("Postman-Token", "d472633e-01ff-45b7-a945-097d0dbbc7f0");
+      xhr.open("GET", "http://localhost:8080/api/courses/" + courseId);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("credentials", "include");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      xhr.setRequestHeader("Postman-Token", "d472633e-01ff-45b7-a945-097d0dbbc7f0");
 
-    xhr.send(data);
+      xhr.send(data);
+    })
+
+    return promise;
   }
 
   findAllCourses = () =>{
@@ -83,25 +91,28 @@ class CourseService {
   }
 
   deleteCourse = deleteCourse =>{
-    var data = JSON.stringify(false);
+    const promise = new Promise( (resolve, reject) => {
+      var data = JSON.stringify(false);
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
 
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          resolve(JSON.parse(this.responseText));
+        }
+      });
 
-    xhr.open("DELETE", "http://localhost:8080/api/courses/"+deleteCourse.id);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("credentials", "include");
-    xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader( 'Access-Control-Allow-Credentials', 'true');
-    xhr.setRequestHeader("Postman-Token", "1319a8cc-2efb-4890-b532-95c4291003e0");
+      xhr.open("DELETE", "http://localhost:8080/api/courses/" + deleteCourse.id);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("credentials", "include");
+      xhr.setRequestHeader("cache-control", "no-cache");
+      xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+      xhr.setRequestHeader("Postman-Token", "1319a8cc-2efb-4890-b532-95c4291003e0");
 
-    xhr.send(data);
+      xhr.send(data);
+    })
+    return promise;
   }
 
   updateCourse = (id, course) => {

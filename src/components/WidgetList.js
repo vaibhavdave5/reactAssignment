@@ -3,7 +3,7 @@ import WidgetComponent from './WidgetComponent'
 
 const WidgetList = ({widgets, preview, topic, addWidget, deleteWidget, updateWidget, upWidget, downWidget,
                         loadWidgets}) => {
-    loadWidgets();
+    // loadWidgets();
     return (<div>
         <div className="list-group">
             {

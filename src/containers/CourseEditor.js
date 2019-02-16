@@ -7,6 +7,8 @@ import WidgetListContainer from '../containers/WidgetListContainer'
 import widgetReducer from '../reducers/WidgetReducer'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
+import courses from '../services/courses.json'
+
 
 const store = createStore(widgetReducer);
 
@@ -16,16 +18,30 @@ class CourseEditor extends React.Component {
         super(props)
         this.courseService = new CourseService()
         const courseId = parseInt(props.match.params.id)
-        const course = this.courseService.findCourseById(courseId)
         this.state = {
-            course: course,
-            title: course.title,
-            module: course.modules[0],
-            lesson: course.modules[0].lessons[0],
-            topic: course.modules[0].lessons[0].topics[0],
+            course: courses[0],
+            title: courses[0].title,
+            module: courses[0].modules[0],
+            lesson: courses[0].modules[0].lessons[0],
+            topic: courses[0].modules[0].lessons[0].topics[0],
             newModuleName: "",
-            widgets: course.modules[0].lessons[0].topics[0].widgets
+            widgets: courses[0].modules[0].lessons[0].topics[0].widgets,
+            lessons:courses[0].modules[0].lessons
         }
+        this.courseService.findCourseById(courseId)
+            .then( (course) => {
+                    this.setState({
+                        course: course,
+                        title: course.title,
+                        module: course.modules[0],
+                        lessons:course.modules[0].lessons,
+                        lesson: course.modules[0].lessons[0],
+                        topic: course.modules[0].lessons[0].topics[0],
+                        newModuleName: "",
+                    });
+                console.log(this.state.course);
+                }
+            )
     }
     selectModule = module =>{
         this.setState({
@@ -59,6 +75,13 @@ class CourseEditor extends React.Component {
         this.setState({
             lesson: newLesson
         })
+    }
+
+    moduleColor = (module) => {
+        if(module.id === this.state.module.id){
+            return "nav-link alert alert-dismissible alert-danger";
+        }
+        return "nav-link alert alert-dismissible alert-primary";
     }
 
     selectTopic = selectedtopic =>{
@@ -189,8 +212,6 @@ class CourseEditor extends React.Component {
             newModuleName: document.getElementById("newModule").value
         })
     }
-
-
     titleChangedLesson = (lesson) => {
         var txt;
         var name = prompt("Please enter your new Lesson Name:", "");
@@ -279,6 +300,7 @@ class CourseEditor extends React.Component {
     }
 
     render() {
+
         return (
             <div>
 
@@ -315,6 +337,7 @@ class CourseEditor extends React.Component {
                                         selectedModule = {this.state.module}
                                         delModule = {this.deleteModule}
                                         titleChanged = {this.titleChanged}
+                                        moduleColor={this.moduleColor}
                             />
 
                         </ul>
@@ -356,7 +379,7 @@ class CourseEditor extends React.Component {
                             <div className="row">
                                 <ul className="nav nav-tabs">
                                     {
-                                        this.state.module.lessons.map(
+                                        this.state.lessons.map(
                                             (lesson) => {
                                                 return (
                                                     <LessonTabs
@@ -409,7 +432,7 @@ class CourseEditor extends React.Component {
                                             }
                                         }
                                         >Preview</button>
-                                
+
                             </div>
                         </div>
                         <br />
