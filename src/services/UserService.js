@@ -19,7 +19,7 @@ class UserService {
 
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-                   resolve(this.responseText)
+                    resolve(JSON.parse(this.responseText))
                 }
             });
 
@@ -34,12 +34,12 @@ class UserService {
         return promise
     }
 
-    register = (username, password) => {
+    register = (username, password, fname, lname) => {
         var data = JSON.stringify({
             "username": username.value,
             "password": password.value,
-            "firstName": "",
-            "lastName": "",
+            "firstName": fname.value,
+            "lastName": lname.value,
             "role": "",
             "courses": []
         });
@@ -49,6 +49,7 @@ class UserService {
 
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
+                window.location.href ="/"
             }
         });
 
@@ -57,7 +58,55 @@ class UserService {
         xhr.setRequestHeader("cache-control", "no-cache");
         xhr.setRequestHeader( 'Access-Control-Allow-Credentials', 'true');
         xhr.setRequestHeader("Postman-Token", "3a51f33b-920b-421f-b2d3-918cc90286eb");
+        xhr.send(data);
+    }
 
+    logout = () => {
+        var data = JSON.stringify(false);
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
+                window.location.href ="/"
+            }
+        });
+
+        xhr.open("POST", "http://localhost:8080/api/logout");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("cache-control", "no-cache");
+        xhr.setRequestHeader("Postman-Token", "52ef102f-0228-4d58-abe1-c14d3913a80d");
+
+        xhr.send(data);
+    }
+
+    update = (username, password, fname, lname) => {
+        var data = JSON.stringify({
+            "id" : new Date().getTime(),
+            "username": username.value,
+            "password": password.value,
+            "firstName": fname.value,
+            "lastName": lname.value,
+            "role": "",
+            "courses": []
+        });
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                window.location.href ="/"
+            }
+        });
+
+        xhr.open("POST", "http://localhost:8080/api/update");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("cache-control", "no-cache");
+        xhr.setRequestHeader( 'Access-Control-Allow-Credentials', 'true');
+        xhr.setRequestHeader("Postman-Token", "3a51f33b-920b-421f-b2d3-918cc90286eb");
         xhr.send(data);
     }
 }

@@ -7,6 +7,7 @@ import UserService from '../services/UserService'
 import CourseEditor from "../containers/CourseEditor";
 import Login from "./Login";
 import Register from "./Register";
+import Profile from "./Profile";
 class WhiteBoard extends Component {
   constructor() {
     super();
@@ -38,6 +39,9 @@ class WhiteBoard extends Component {
     login = (username, password) =>
     {
         this.userService.login(username,password)
+            .then((user) => {this.setState({
+            "user": user
+        })});
         this.setState({
             showbutton:"yes"
         })
@@ -90,7 +94,17 @@ this.state.loggedIn === "no" &&
                    courses={this.state.courses}
                    addCourse={this.addCourse}
                    deleteCourse={this.deleteCourse}
-               />}/>
+               />
+               }
+        />
+        <Route path='/profile'
+               render={() => <Profile
+                   update={this.userService.update}
+                   user={this.state.user}
+               />
+               }
+        />
+
 
 
     </div>

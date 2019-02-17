@@ -56,6 +56,12 @@ export default class CourseList extends Component{
                     <Link className="btn btn-dark"
                         to={this.state.view}>
                         Change View</Link>
+                <Link className="btn btn-dark"
+                      to='/profile'>
+                    Profile</Link>
+                <button className="btn btn-dark"
+                        onClick={()=>this.userService.logout()}>
+                    logout</button>
                 <br/><br/>
 
             </div>
