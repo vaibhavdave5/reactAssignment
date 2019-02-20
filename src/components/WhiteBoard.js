@@ -55,14 +55,14 @@ class WhiteBoard extends Component {
                     this.setState({
                         "user": user
                     })
+                    this.setState({
+                        showbutton:"yes"
+                    })
                 }
                 else{
                     alert("Incorrect user ID and password..<br/> Mock Username = John Password = Ford ")
                 }
             });
-        this.setState({
-            showbutton:"yes"
-        })
     }
 
     register = (username, password, fname, lname) => {
