@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import CourseService from "../services/CourseService";
+import UserService from "../services/UserService";
 export default class CourseList extends Component{
     constructor(props) {
         super(props)
         this.courseService = new CourseService()
+        this.userService = new UserService()
         var parts = window.location.href.split('/');
         var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
         if(lastSegment === 'table'){
