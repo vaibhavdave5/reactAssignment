@@ -13,10 +13,21 @@ class WhiteBoard extends Component {
     super();
     this.courseService = new CourseService()
       this.userService = new UserService()
-    this.state = {
-        loggedIn:"no",
-        showbutton: "no"
-    }
+      this.state = {
+          loggedIn:"no",
+          showbutton: "no"
+      }
+
+      this.userService.getUser().
+      then((response) => {
+          console.log(response)
+          if(response)
+              this.setState({
+                  user: response
+              })
+          this.changeRouteState()
+      })
+
   }
   changeRouteState = () =>{
       this.courseService.findAllCourses().then(this.helpCRS)
@@ -47,8 +58,8 @@ class WhiteBoard extends Component {
         })
     }
 
-    register = (username, password) => {
-        this.userService.register(username, password)
+    register = (username, password, fname, lname) => {
+        this.userService.register(username, password, fname, lname)
     }
 
   addCourse = (name) => {

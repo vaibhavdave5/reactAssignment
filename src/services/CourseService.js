@@ -24,7 +24,7 @@ class CourseService {
       }
     });
 
-    xhr.open("POST", "http://localhost:8080/api/courses");
+    xhr.open("POST", "https://damp-castle-92508.herokuapp.com/api/courses");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("credentials", "include");
     xhr.setRequestHeader("cache-control", "no-cache");
@@ -49,7 +49,7 @@ class CourseService {
         }
       });
 
-      xhr.open("GET", "http://localhost:8080/api/courses/" + courseId);
+      xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/courses" + courseId);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("credentials", "include");
       xhr.setRequestHeader("cache-control", "no-cache");
@@ -76,7 +76,7 @@ class CourseService {
         }
       });
 
-      xhr.open("GET", "http://localhost:8080/api/courses/");
+      xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/courses");
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("credentials", "include");
       xhr.setRequestHeader("cache-control", "no-cache");
@@ -101,7 +101,7 @@ class CourseService {
         }
       });
 
-      xhr.open("DELETE", "http://localhost:8080/api/courses/" + deleteCourse.id);
+      xhr.open("DELETE", "https://damp-castle-92508.herokuapp.com/api/courses/" + deleteCourse.id);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("credentials", "include");
       xhr.setRequestHeader("cache-control", "no-cache");
@@ -128,7 +128,7 @@ class CourseService {
       }
     });
 
-    xhr.open("PUT", "http://localhost:8080/api/courses/"+id);
+    xhr.open("PUT", "https://damp-castle-92508.herokuapp.com/api/courses/"+id);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("credentials", "include");
     xhr.setRequestHeader("cache-control", "no-cache");

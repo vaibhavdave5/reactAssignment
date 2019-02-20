@@ -15,7 +15,7 @@ class ModuleService {
                 }
             });
 
-            xhr.open("GET", "http://localhost:8080/api/course/" + cid + "/modules");
+            xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/course/" + cid + "/modules");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -39,7 +39,7 @@ class ModuleService {
                     resolve(JSON.parse(this.responseText));
                 }
             });
-            xhr.open("POST", "http://localhost:8080/api/courses/" + cid + "/modules");
+            xhr.open("POST", "https://damp-castle-92508.herokuapp.com/api/courses/" + cid + "/modules");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -63,7 +63,7 @@ class ModuleService {
                 }
             });
 
-            xhr.open("GET", "http://localhost:8080/api/modules/" + mid);
+            xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/modules/" + mid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -90,7 +90,7 @@ class ModuleService {
                     resolve(JSON.parse(this.responseText));
                 }
             });
-            xhr.open("PUT", "http://localhost:8080/api/modules/" + mid);
+            xhr.open("PUT", "https://damp-castle-92508.herokuapp.com/api/modules/" + mid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -114,7 +114,7 @@ class ModuleService {
                 }
             });
 
-            xhr.open("DELETE", "http://localhost:8080/api/modules/" + mid);
+            xhr.open("DELETE", "https://damp-castle-92508.herokuapp.com/api/modules/" + mid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");

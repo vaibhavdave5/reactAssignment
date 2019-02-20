@@ -19,7 +19,7 @@ class LessonService {
                 }
             });
 
-            xhr.open("POST", "http://localhost:8080/api/module/"+mid+"/lesson");
+            xhr.open("POST", "https://damp-castle-92508.herokuapp.com/api/module/"+mid+"/lesson");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -44,7 +44,7 @@ class LessonService {
                 }
             });
 
-            xhr.open("GET", "http://localhost:8080/api/module/3214/lesson");
+            xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/module/3214/lesson");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -69,7 +69,7 @@ class LessonService {
                 }
             });
 
-            xhr.open("GET", "http://localhost:8080/api/lesson/"+lid);
+            xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/lesson/"+lid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -93,7 +93,7 @@ class LessonService {
                 }
             });
 
-            xhr.open("PUT", "http://localhost:8080/api/lesson/"+lid);
+            xhr.open("PUT", "https://damp-castle-92508.herokuapp.com/api/lesson/"+lid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
@@ -118,7 +118,7 @@ class LessonService {
                 }
             });
 
-            xhr.open("DELETE", "http://localhost:8080/api/lesson/"+lid);
+            xhr.open("DELETE", "https://damp-castle-92508.herokuapp.com/api/lesson/"+lid);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("credentials", "include");
             xhr.setRequestHeader("cache-control", "no-cache");
