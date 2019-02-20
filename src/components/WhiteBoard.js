@@ -50,9 +50,16 @@ class WhiteBoard extends Component {
     login = (username, password) =>
     {
         this.userService.login(username,password)
-            .then((user) => {this.setState({
-            "user": user
-        })});
+            .then((user) => {
+                if (user) {
+                    this.setState({
+                        "user": user
+                    })
+                }
+                else{
+                    alert("Incorrect user ID and password..<br/> Mock Username = John Password = Ford ")
+                }
+            });
         this.setState({
             showbutton:"yes"
         })
