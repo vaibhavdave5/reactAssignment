@@ -18,7 +18,10 @@ class UserService {
 
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-                    resolve(JSON.parse(this.responseText))
+                    if(this.responseText){
+                        resolve(JSON.parse(this.responseText))
+                    }
+                    resolve(this.responseText)
                 }
             });
 
