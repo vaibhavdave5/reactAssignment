@@ -49,7 +49,7 @@ class CourseService {
         }
       });
 
-      xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/courses" + courseId);
+      xhr.open("GET", "https://damp-castle-92508.herokuapp.com/api/courses/" + courseId);
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("credentials", "include");
       xhr.setRequestHeader("cache-control", "no-cache");
